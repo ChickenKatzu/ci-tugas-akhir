@@ -101,8 +101,7 @@
             src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
+            <p class="card-text">Lorem ipsum dolor si</p>
             <a class="btn btn-primary">Button</a>
           </div>
         </div>
@@ -114,8 +113,7 @@
             src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
+            <p class="card-text">Lorem ipsum dolor si</p>
             <a class="btn btn-primary">Button</a>
           </div>
         </div>
@@ -127,8 +125,7 @@
             src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
+            <p class="card-text">Lorem ipsum dolor si</p>
             <a class="btn btn-primary">Button</a>
           </div>
         </div>
@@ -140,8 +137,7 @@
             src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
+            <p class="card-text">Lorem ipsum dolor si</p>
             <a class="btn btn-primary">Button</a>
           </div>
         </div>
@@ -159,8 +155,7 @@
             src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
+            <p class="card-text">Lorem ipsum dolor si</p>
             <a class="btn btn-primary">Button</a>
           </div>
         </div>
@@ -172,8 +167,7 @@
             src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
+            <p class="card-text">Lorem ipsum dolor si</p>
             <a class="btn btn-primary">Button</a>
           </div>
         </div>
@@ -185,8 +179,7 @@
             src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
+            <p class="card-text">Lorem ipsum dolor si</p>
             <a class="btn btn-primary">Button</a>
           </div>
         </div>
@@ -198,8 +191,7 @@
             src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
+            <p class="card-text">Lorem ipsum dolor si</p>
             <a class="btn btn-primary">Button</a>
           </div>
         </div>

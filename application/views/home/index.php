@@ -69,14 +69,18 @@
 <!-- Page Content -->
 <section class="py-5">
   <div class="breadcrumb">
-    <div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
-  <div><h3>1</h3></div>
-  <div><h3>2</h3></div>
-  <div><h3>3</h3></div>
-  <div><h3>4</h3></div>
-  <div><h3>5</h3></div>
-  <div><h3>6</h3></div>
-</div>
+    <div class="slick-slider-area">
+      <div class="slick-slider-item">
+        <div class="row slick-carousel" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+          <div><h3>1</h3></div>
+          <div><h3>2</h3></div>
+          <div><h3>3</h3></div>
+          <div><h3>4</h3></div>
+          <div><h3>5</h3></div>
+          <div><h3>6</h3></div>
+        </div>
+      </div>      
+    </div>
   </div>
 </section>
 <section class="py-5">

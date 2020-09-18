@@ -65,61 +65,63 @@
   </div>
 </header>
 
-
-<!-- Page Content -->
-<section class="py-5">
+<section class="py-2">
   <div class="breadcrumb">
-    <div class="slick-slider-area">
-      <div class="slick-slider-item">
-        <div class="row slick-carousel" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
-          <div><h3>1</h3></div>
-          <div><h3>2</h3></div>
-          <div><h3>3</h3></div>
-          <div><h3>4</h3></div>
-          <div><h3>5</h3></div>
-          <div><h3>6</h3></div>
-        </div>
-      </div>      
+    <div class="contaienr" style="text-align: center">
+      <div class="card">
+
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
     </div>
   </div>
 </section>
-<section class="py-5">
+<!-- Page Content -->
+<section>
+  <div class="text-center">
+    <h1>Tentang Kos R-Cell</h1>
+  </div>
   <div class="container">
-    <div id="card-slide1" class="carousel slide" data-ride="carousel">
+
+    <div id="slide2" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
-        <li data-target="#card-slide1" data-slide-to="0" class="active"></li>
-        <li data-target="#card-slide1" data-slide-to="1"></li>
-        <li data-target="#card-slide1" data-slide-to="2"></li>
+        <li data-target="#slide2" data-slide-to="0" class="active"></li>
+        <li data-target="#slide2" data-slide-to="1"></li>
+        <li data-target="#slide2" data-slide-to="2"></li>
       </ol>
-      <div class="carousel-inner" role="listbox">
-        <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-inner">
         <div class="carousel-item active" style="background-image: url(assets/img/gambar5.jpg)">
           <div class="carousel-caption d-none d-md-block">
             <h3 class="display-4">First Slide</h3>
             <p class="lead">This is a description for the first slide.</p>
           </div>
         </div>
-        <div class="carousel-item active" style="background-image: url(assets/img/gambar2.jpg)">
+        <div class="carousel-item" style="background-image: url(assets/img/gambar6.jpg)">
           <div class="carousel-caption d-none d-md-block">
             <h3 class="display-4">First Slide</h3>
-            <p class="lead">This is a description for the second slide.</p>
+            <p class="lead">This is a description for the first slide.</p>
           </div>
         </div>
-        <div class="carousel-item active" style="background-image: url(assets/img/gambar6.jpg)">
+        <div class="carousel-item" style="background-image: url(assets/img/gambar1.jpg)">
           <div class="carousel-caption d-none d-md-block">
             <h3 class="display-4">First Slide</h3>
-            <p class="lead">This is a description for the third slide.</p>
+            <p class="lead">This is a description for the first slide.</p>
           </div>
         </div>
-        <a class="carousel-control-prev" href="#card-slide1" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#card-slide1" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
+      <a class="carousel-control-prev" href="#slide2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#slide2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
+
   </div>
-</section>
+  <section>

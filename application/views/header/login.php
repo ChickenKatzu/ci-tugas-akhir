@@ -8,7 +8,8 @@
   <link rel="icon" href="<?php echo base_url(); ?>assets/img/favicon1.png" type="image/png">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/login1.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/home1.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/slick_slider/slick/slick.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/slick/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/favicon1.png" type="image/x-icon">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
@@ -23,3 +24,4 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body>
+  <div class="wrapper">

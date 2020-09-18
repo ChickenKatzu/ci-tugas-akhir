@@ -6,7 +6,7 @@
              <!-- Background image for card set in CSS! -->
           </div>
           <div class="card-body">
-            <h5 class="card-title text-center">Register</h5>
+            <h5 class="card-title">Register</h5>
             <form class="form-signin">
               <div class="form-label-group">
                 <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>

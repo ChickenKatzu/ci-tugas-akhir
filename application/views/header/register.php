@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Register</title>
   <link rel="icon" href="<?php echo base_url(); ?>assets/img/favicon1.png" type="image/png">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/regist1.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/register.css">
   <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/favicon1.png" type="image/x-icon">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">

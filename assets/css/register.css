@@ -15,19 +15,16 @@ body {
   overflow: hidden;
 }
 
-.card-signin {
+.card-signin .card-title {
   margin-bottom: 2rem;
   font-weight: 300;
   font-size: 1.5rem;
-  text-align: center;
 }
-.card-title {
-  text-align: center;
-}
+
 .card-signin .card-img-left {
   width: 45%;
   /* Link to your background image using in the property below! */
-  background: scroll center url('assets/img/gambar5.jpg');
+  background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
   background-size: cover;
 }
 

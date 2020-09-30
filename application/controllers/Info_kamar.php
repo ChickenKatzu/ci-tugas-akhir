@@ -10,13 +10,15 @@ class Info_kamar extends CI_Controller {
 	public function index()
 	{
 		$this->load->view("header/header");
-		$data['kamar']=$this->m_data->tampil_data_join()->result();
+		$data['kamar']=$this->m_data->tampil_data()->result();
 		$this->load->view("info_kamar",$data);
 		$this->load->view("footer/footer");
 	}
 	public function tambah()
 	{
+		$this->load->view("header/header");
 		$this->load->view('tambah_kamar');
+		$this->load->view("footer/footer");
 	}
 	public function aksi_tambah()
 	{

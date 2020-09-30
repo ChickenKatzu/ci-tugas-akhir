@@ -122,7 +122,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?php echo base_url('info_kamar/tambah') ?>" class="nav-link">
                 <i class="nav-icon fa fa-bed"></i>
                 <p>
                   Tambah Kamar

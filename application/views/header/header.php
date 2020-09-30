@@ -104,7 +104,7 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="<?php echo base_url('Dashboard/index') ?>" class="nav-link">
+              <a href="<?php echo base_url('Dashboard') ?>" class="nav-link">
                 <i class="nav-icon fa fa-dashboard"></i>
                 <p>
                   Dashboard
@@ -113,7 +113,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url('info_kamar/kamar') ?>" class="nav-link">
+              <a href="<?php echo base_url('info_kamar') ?>" class="nav-link">
                 <i class="nav-icon fa fa-home"></i>
                 <p>
                   Info Kamar

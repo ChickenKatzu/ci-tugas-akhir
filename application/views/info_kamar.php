@@ -1,71 +1,40 @@
 
 
-  <!-- Main content -->
-  <section class="content">
-    <div class="container">
-      <div class="row">
-        <div class="card col-md-3 m-1" style="width: 18rem;">
-          <img class="card-img-top" src="<?php echo base_url() ?>assets/img/koska.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">kamar 1</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            <a href="#" class="btn btn-light">IDR 5000</a>
-          </div>
-        </div>
-      
-        <div class="card col-md-3 m-1" style="width: 18rem;">
-          <img class="card-img-top" src="<?php echo base_url() ?>assets/img/koska.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">kamar 2</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            <a href="#" class="btn btn-light">IDR 5000</a>
-          </div>
-        </div>
-      
-        <div class="card col-md-3 m-1" style="width: 18rem;">
-          <img class="card-img-top" src="<?php echo base_url() ?>assets/img/koska.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">kamar 3</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            <a href="#" class="btn btn-light">IDR 5000</a>
-          </div>
-        </div>
-      
-        <div class="card col-md-3 m-1" style="width: 18rem;">
-          <img class="card-img-top" src="<?php echo base_url() ?>assets/img/koska.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">kamar 4</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            <a href="#" class="btn btn-light">IDR 5000</a>
-          </div>
-        </div>
-      
-        <div class="card col-md-3 m-1" style="width: 18rem;">
-          <img class="card-img-top" src="<?php echo base_url() ?>assets/img/koska.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">kamar 5</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            <a href="#" class="btn btn-light">IDR 5000</a>
-          </div>
-        </div>
-      
-        <div class="card col-md-3 m-1" style="width: 18rem;">
-          <img class="card-img-top" src="<?php echo base_url() ?>assets/img/koska.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">kamar 6</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            <a href="#" class="btn btn-light">IDR 5000</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-  <!-- /.content -->
+<!-- Main content -->
+<section class="content">
+ <div class="breadcrumb">
+  <div class="box-body table-responsive table-hover">
+   <table class="table table-hover">
+     <tr class="label-primary">
+      <th>No Kamar</th>
+       <th>Status</th>
+       <th>Nama</th>
+       <th>Email</th>
+       <th>Gambar</th>
+       <th>Action</th>
+     </tr>
+     <?php 
+     $no=1;
+     foreach($kamar as $k)
+     {
+      ?>
+      <tr>
+        <td><?php echo $no++ ?></td>
+        <td><?php echo $k->status ?></td>
+        <td><?php echo $k->nama ?></td>
+        <td><?php echo $k->email ?></td>
+        <td><img src="<?php echo base_url('gambar/'.$u->gambar) ?>" width="72"></td>
+        <td>
+          <a class="btn label-warning" href="<?php echo base_url('welcome/edit/'.$u->id) ?>">
+            <i class="fa fa-edit"></i>
+          </a>
+          <a href="<?php echo base_url('welcome/hapus/'.$u->id) ?>" class="btn label-danger">
+           <i class="fa fa-trash-o"></i>
+         </a>
+       </td>
+     </tr>
+   <?php } ?>
+ </table>
 </div>
+</div>
+</section>

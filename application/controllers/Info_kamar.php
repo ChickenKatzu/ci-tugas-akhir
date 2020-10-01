@@ -47,4 +47,24 @@ class Info_kamar extends CI_Controller {
 		$this->m_data->hapus_data($where,'kamar');
 		redirect('info_kamar');
 	}
+	public function update()
+	{
+		$id = $this->input->post('id_kamar');
+		$ukuran_kamar = $this->input->post('ukurankamar');
+		$status = $this->input->post('status');
+		$harga_bulanan = $this->input->post('hargabulanan');
+
+		$data = array(
+			'ukuran_kamar' => $ukuran_kamar,
+			'status' => $status,
+			'harga_bulanan' => $harga_bulanan
+		);
+
+		$where = array(
+			'id_kamar' => $id
+		);
+
+		$this->m_data->update_data($where,$data,'kamar');
+		redirect('info_kamar');
+	}
 }

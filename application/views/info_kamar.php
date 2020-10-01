@@ -29,10 +29,10 @@
         <td><!-- <?php echo $k->nama ?> --></td><!-- tag masih kosong -->
         <td><!-- <?php echo $k->status ?> --></td><!-- tag masih kosong -->
         <td>
-          <a class="btn btn-warning" href="<?php echo base_url('info_kamar/edit') ?>">
+          <a class="btn btn-warning" href="<?php echo base_url('info_kamar/edit/'.$k->id) ?>">
             <i class="fa fa-edit"></i>
           </a>
-          <a href="<?php echo base_url('info_kamar/hapus') ?>" class="btn btn-danger">
+          <a class="btn btn-danger" href="<?php echo base_url('info_kamar/hapus/'.$k->id) ?>">
            <i class="fa fa-trash-o"></i>
          </a>
        </td>

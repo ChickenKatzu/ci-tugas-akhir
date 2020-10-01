@@ -20,12 +20,6 @@ class Info_kamar extends CI_Controller {
 		$this->load->view('tambah_kamar');
 		$this->load->view("footer/footer");
 	}
-	public function edit()
-	{
-		$this->load->view("header/header");
-		$this->load->view('edit_kamar');
-		$this->load->view("footer/footer");
-	}
 	public function aksi_tambah()
 	{
 		$status=$this->input->post('status');
@@ -38,6 +32,14 @@ class Info_kamar extends CI_Controller {
 		);
 		$this->m_data->input_data($data,'kamar');
 		redirect('info_kamar/kamar');
+	}
+	public function edit($id)
+	{
+		$where=array('id'=>$id);
+		$data['kamar']=$this->m_data->edit_data($where,'kamar')->result();
+		$this->load->view('edit_kamar',$data);
+		$this->load->view("header/header");
+		$this->load->view("footer/footer");
 	}
 	public function hapus($id)
 	{

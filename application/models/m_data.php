@@ -9,6 +9,10 @@ class M_data extends CI_Model{
 		$this->db->join('user');
 		$query=$this->db->get();
 	}
+	function update_data()
+	{
+		return $this->db->get('kamar');
+	}
 	function input_data($data, $table){
 		$this->db->insert($data, $table);
 	}

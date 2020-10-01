@@ -23,15 +23,15 @@ class Info_kamar extends CI_Controller {
 	public function aksi_tambah()
 	{
 		$status=$this->input->post('status');
-		$nama=$this->input->post('nama');
-		$email=$this->input->post('email');
+		$ukurankamar=$this->input->post('ukurankamar');
+		$hargabulanan=$this->input->post('hargabulanan');
 		$data=array(
 			'status'=> $status,
-			'nama'=> $nama,
-			'email'=> $email
+			'ukuran_kamar'=> $ukurankamar,
+			'harga_bulanan'=> $hargabulanan
 		);
 		$this->m_data->input_data($data,'kamar');
-		redirect('info_kamar/kamar');
+		redirect('info_kamar');
 	}
 	public function edit($id)
 	{

@@ -12,13 +12,13 @@
       <th>No Kamar</th>
       <th>Ukuran Kamar</th>
       <th>Harga Bulanan</th>
-      <th>Nama</th>
       <th>Status</th>
 
       <th>Action</th>
     </tr>
     <?php 
     $no=1;
+    
     foreach($kamar as $k)
     {
       ?>
@@ -26,13 +26,12 @@
         <td><?php echo $no++ ?></td>
         <td><?php echo $k->ukuran_kamar ?></td>
         <td><?php echo $k->harga_bulanan ?></td>
-        <td><!-- <?php echo $k->nama ?> --></td><!-- tag masih kosong -->
-        <td><!-- <?php echo $k->status ?> --></td><!-- tag masih kosong -->
+        <td><?php echo $k->status ?></td>
         <td>
-          <a class="btn btn-warning" href="<?php echo base_url('info_kamar/edit/'.$k->id) ?>">
+          <a class="btn btn-warning" href="<?php echo base_url('info_kamar/edit'.$k->id) ?>">
             <i class="fa fa-edit"></i>
           </a>
-          <a class="btn btn-danger" href="<?php echo base_url('info_kamar/hapus/'.$k->id) ?>">
+          <a class="btn btn-danger" href="<?php echo base_url('info_kamar/hapus'.$k->id) ?>">
            <i class="fa fa-trash-o"></i>
          </a>
        </td>

@@ -35,15 +35,15 @@ class Info_kamar extends CI_Controller {
 	}
 	public function edit($id)
 	{
-		$where=array('id'=>$id);
+		$where=array('id_kamar'=>$id);
 		$data['kamar']=$this->m_data->edit_data($where,'kamar')->result();
-		$this->load->view('edit_kamar',$data);
 		$this->load->view("header/header");
+		$this->load->view('edit_kamar',$data);
 		$this->load->view("footer/footer");
 	}
 	public function hapus($id)
 	{
-		$where = array('id' => $id);
+		$where = array('id_kamar' => $id);
 		$this->m_data->hapus_data($where,'kamar');
 		redirect('info_kamar');
 	}

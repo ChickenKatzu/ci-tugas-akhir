@@ -32,7 +32,7 @@
           <a class="btn btn-warning" href="<?php echo base_url('info_kamar/edit') ?>">
             <i class="fa fa-edit"></i>
           </a>
-          <a href="#" class="btn btn-danger">
+          <a href="<?php echo base_url('info_kamar/hapus') ?>" class="btn btn-danger">
            <i class="fa fa-trash-o"></i>
          </a>
        </td>

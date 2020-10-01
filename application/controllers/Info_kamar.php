@@ -39,4 +39,10 @@ class Info_kamar extends CI_Controller {
 		$this->m_data->input_data($data,'kamar');
 		redirect('info_kamar/kamar');
 	}
+	public function hapus($id)
+	{
+		$where = array('id' => $id);
+		$this->m_data->hapus_data($where,'kamar');
+		redirect('info_kamar');
+	}
 }

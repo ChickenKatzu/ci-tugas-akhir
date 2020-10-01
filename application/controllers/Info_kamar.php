@@ -20,6 +20,12 @@ class Info_kamar extends CI_Controller {
 		$this->load->view('tambah_kamar');
 		$this->load->view("footer/footer");
 	}
+	public function edit()
+	{
+		$this->load->view("header/header");
+		$this->load->view('edit_kamar');
+		$this->load->view("footer/footer");
+	}
 	public function aksi_tambah()
 	{
 		$status=$this->input->post('status');

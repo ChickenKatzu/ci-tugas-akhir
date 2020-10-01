@@ -29,10 +29,10 @@
         <td><!-- <?php echo $k->nama ?> --></td><!-- tag masih kosong -->
         <td><!-- <?php echo $k->status ?> --></td><!-- tag masih kosong -->
         <td>
-          <a class="btn label-warning" href="#">
+          <a class="btn btn-warning" href="<?php echo base_url('info_kamar/edit') ?>">
             <i class="fa fa-edit"></i>
           </a>
-          <a href="#" class="btn label-danger">
+          <a href="#" class="btn btn-danger">
            <i class="fa fa-trash-o"></i>
          </a>
        </td>

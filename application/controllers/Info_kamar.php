@@ -49,7 +49,7 @@ class Info_kamar extends CI_Controller {
 	}
 	public function update()
 	{
-		$id = $this->input->post('id_kamar');
+		$id = $this->input->post('idkamar');
 		$ukuran_kamar = $this->input->post('ukurankamar');
 		$status = $this->input->post('status');
 		$harga_bulanan = $this->input->post('hargabulanan');

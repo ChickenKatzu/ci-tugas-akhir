@@ -1,6 +1,7 @@
 <?php 
 class M_data extends CI_Model{
-	function tampil_data(){
+	function tampil_data()
+	{
 		return $this->db->get('kamar');
 	}
 	function update_data($where,$data,$table)

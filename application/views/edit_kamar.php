@@ -6,15 +6,15 @@
           <div class="form-group col-md-6">
             <input type="hidden" name="idkamar" value="<?php echo $k->id_kamar?>">
             <label for="ukuranKamar">Ukuran kamar</label>
-            <input type="text" class="form-control" id="ukuranKamar" placeholder="Ukuran Kamar" value="<?php echo $k->ukuran_kamar ?>">
+            <input type="text" name="ukurankamar" class="form-control" id="ukuranKamar" placeholder="Ukuran Kamar" value="<?php echo $k->ukuran_kamar ?>">
           </div>
           <div class="form-group col-md-6">
             <label for="status">Status</label>
-            <input type="text" class="form-control" id="status" placeholder="status" value="<?php echo $k->status ?>">
+            <input type="text" name="status"class="form-control" id="status" placeholder="status" value="<?php echo $k->status ?>">
           </div>
           <div class="form-group col-md-6">
             <label for="hargaBulanan">Harga Bulanan</label>
-            <input type="text" class="form-control" id="hargaBulanan" placeholder="Harga Bulanan" value="<?php echo $k->harga_bulanan ?>">
+            <input type="text" name="hargabulanan" class="form-control" id="hargaBulanan" placeholder="Harga Bulanan" value="<?php echo $k->harga_bulanan ?>">
           </div>
         </div>
         <div class="form-group">

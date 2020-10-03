@@ -1,5 +1,5 @@
 <?php 
-class M_data extends CI_Model{
+class M_kamar extends CI_Model{
 	function tampil_data()
 	{
 		return $this->db->get('kamar');
@@ -14,7 +14,7 @@ class M_data extends CI_Model{
 		return $this->db->get_where($table,$where);
 	}
 	function tampil_data_join(){
-		$this->db->select('id_kamar','ukuran_kamar','harga_kamar','nama');
+		$this->db->select('id_kamar','nama_kamar','ukuran_kamar','harga_kamar','nama');
 		$this->db->from('kamar');
 		$this->db->join('user');
 		$query=$this->db->get();

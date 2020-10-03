@@ -66,17 +66,27 @@
 </header>
 
 <section class="py-2">
-  <div class="breadcrumb">
-    <div class="contaienr" style="text-align: center">
-      <div class="card">
-
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
+  <div class="container">
+    <div class="card-deck" >
+      <?php foreach ($kamar as $k){ ?>
+        <div class="card">
+          <img src="<?php echo base_url() ?>assets/img/gambar6.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Kos R-Cell</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" name="ukurankamar"><?php echo $k->ukuran_kamar ?></li>
+            <li class="list-group-item" name="hargabulanan"><?php echo $k->harga_bulanan ?></li>
+            <li class="list-group-item" name="status"><?php echo $k->status ?></li>
+          </ul>
+          <div class="card-body">
+            <a href="<?php echo base_url('bookingcontroller/tambah') ?>" class="card-link">Booking</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+        
+      <?php } ?>
     </div>
   </div>
 </section>
@@ -123,5 +133,13 @@
       </a>
     </div>
 
+  </div>
+  <div class="container py-4">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </div>
   <section>

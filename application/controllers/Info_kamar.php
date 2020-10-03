@@ -3,14 +3,14 @@ class Info_kamar extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_data');
+		$this->load->model('m_kamar');
 		$this->load->helper('form','url');
 	}
 
 	public function index()
 	{
 		$this->load->view("header/header");
-		$data['kamar']=$this->m_data->tampil_data()->result();
+		$data['kamar']=$this->m_kamar->tampil_data()->result();
 		$this->load->view("info_kamar",$data);
 		$this->load->view("footer/footer");
 	}
@@ -24,27 +24,29 @@ class Info_kamar extends CI_Controller {
 	{
 		$status=$this->input->post('status');
 		$ukurankamar=$this->input->post('ukurankamar');
+		$namakamar=$this->input->post('namakamar');
 		$hargabulanan=$this->input->post('hargabulanan');
 		$data=array(
 			'status'=> $status,
 			'ukuran_kamar'=> $ukurankamar,
+			'nama_kamar'=> $namakamar,
 			'harga_bulanan'=> $hargabulanan
 		);
-		$this->m_data->input_data($data,'kamar');
+		$this->m_kamar->input_data($data,'kamar');
 		redirect('info_kamar');
 	}
 	public function edit($id)
 	{
-		$where=array('id_kamar'=>$id);
-		$data['kamar']=$this->m_data->edit_data($where,'kamar')->result();
 		$this->load->view("header/header");
+		$where=array('id_kamar'=>$id);
+		$data['kamar']=$this->m_kamar->edit_data($where,'kamar')->result();
 		$this->load->view('edit_kamar',$data);
 		$this->load->view("footer/footer");
 	}
 	public function hapus($id)
 	{
 		$where = array('id_kamar' => $id);
-		$this->m_data->hapus_data($where,'kamar');
+		$this->m_kamar->hapus_data($where,'kamar');
 		redirect('info_kamar');
 	}
 	public function update()
@@ -64,7 +66,7 @@ class Info_kamar extends CI_Controller {
 			'id_kamar' => $id
 		);
 
-		$this->m_data->update_data($where,$data,'kamar');
+		$this->m_kamar->update_data($where,$data,'kamar');
 		redirect('info_kamar');
 	}
 }

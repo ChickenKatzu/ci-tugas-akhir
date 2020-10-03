@@ -157,6 +157,15 @@
                   </p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url('usercontroller') ?>" class="nav-link">
+                  <i class="nav-icon fas fa-user"></i>
+                  <p>
+                    Users
+                    <span class="right badge badge-danger">New</span>
+                  </p>
+                </a>
+              </li>
             </ul>
           </nav>
           <!-- /.sidebar-menu -->

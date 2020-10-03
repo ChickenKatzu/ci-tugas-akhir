@@ -13,6 +13,10 @@
             <input type="text" name="status"class="form-control" id="status" placeholder="status" value="<?php echo $k->status ?>">
           </div>
           <div class="form-group col-md-6">
+            <label for="hargaBulanan">Nama Kamar</label>
+            <input type="text" name="namakamar" class="form-control" id="hargaBulanan" placeholder="Harga Bulanan" value="<?php echo $k->nama_kamar ?>">
+          </div>
+          <div class="form-group col-md-6">
             <label for="hargaBulanan">Harga Bulanan</label>
             <input type="text" name="hargabulanan" class="form-control" id="hargaBulanan" placeholder="Harga Bulanan" value="<?php echo $k->harga_bulanan ?>">
           </div>

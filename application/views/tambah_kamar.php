@@ -11,6 +11,10 @@
           <input type="text" class="form-control" id="status" name="status" placeholder="status">
         </div>
         <div class="form-group col-md-6">
+          <label for="namakamar">Nama Kamar</label>
+          <input type="text" class="form-control" id="namakamar" name="namakamar" placeholder="Nama Kamar">
+        </div>
+        <div class="form-group col-md-6">
           <label for="hargabulanan">Harga Bulanan</label>
           <input type="text" class="form-control" id="hargabulanan" name="hargabulanan" placeholder="Harga Bulanan">
         </div>

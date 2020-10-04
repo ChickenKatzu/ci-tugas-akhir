@@ -43,11 +43,12 @@ class BookingController extends CI_Controller {
 			'pekerjaan'=> $pekerjaan
 		);
 		$this->m_user->input_data($data_user,'user');
+		// ngambil id 
 		$id_user = $this->db->insert_id();
 		
 		// Update status kamar
 		$id_kamar = $this->input->post('id_kamar');
-	
+
 		$data_kamar = array(
 			'status' => "Full"
 		);
@@ -57,8 +58,11 @@ class BookingController extends CI_Controller {
 		);
 
 		$this->m_kamar->update_data($where,$data_kamar,'kamar');
+		
+
 		$tanggal_masuk=$this->input->post('tanggal_masuk');
 		$tanggal_keluar=$this->input->post('tanggal_keluar');
+		
 		$booking=array(
 			'id_user'=>$id_user,
 			'id_kamar'=>$id_kamar,

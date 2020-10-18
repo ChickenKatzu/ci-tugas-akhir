@@ -1,0 +1,34 @@
+MVC
+
+model  -> db
+view   -> frontend
+controller -> back-end
+
+
+OOP
+
+
+Class Diagram
+
+1. Admin
+2. Owner
+3. User
+4. Booking
+5. Kos
+6. Notification
+=================================
+3. User
+	/admin/usermengent
+	/admin/kos
+4. Booking
+5. Kos
+6. Notification
+
+
+ERD
+
+1. User
+2. Booking "pemesanan"
+3. Kos "Kamar"
+4. Notification
+

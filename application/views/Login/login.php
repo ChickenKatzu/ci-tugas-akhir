@@ -18,8 +18,8 @@
 								</h1>
 								<form>
 									<div class="form-label-group">
-										<input type="text" id="inputUsername" class="form-control" placeholder="username">
-										<label for="inputUsername">Username</label>
+										<input type="text" id="inputUsername"  name="email" class="form-control" placeholder="Email">
+										<label for="inputUsername">Email</label>
 									</div>
 
 									<div class="form-label-group">
@@ -32,8 +32,8 @@
 								</form>
 								<hr>
 								<a href="<?php echo base_url() ?>register">
-										<button class="btn btn-lg btn-default btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Register</button>
-									</a>
+									<button class="btn btn-lg btn-default btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Register</button>
+								</a>
 							</div>
 						</div>
 					</div>

@@ -3,9 +3,19 @@
   --input-padding-y: .75rem;
 }
 
-body {
-  background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
+.bg-blur{
+  background-image: url(../img/gambar5.jpg);
+  background-size: cover;
+  background-position: center;
+  width:1450px;
+  height:800px;
+  -webkit-filter: blur(4px);
+  z-index:0;
+  position:absolute;
+}
+.content{
+  z-index:10;
+  position:relative;
 }
 
 .card-signin {
@@ -30,7 +40,7 @@ body {
 .card-signin .card-img-left {
   width: 45%;
   /* Link to your background image using in the property below! */
-  background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
+  background: scroll center;
   background-size: cover;
 }
 

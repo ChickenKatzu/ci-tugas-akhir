@@ -6,4 +6,6 @@ class Dashboard extends CI_Controller {
 		$this->load->view('dashboard/dashboard_user');
 		$this->load->view('footer/footer');
 	}
+
+	
 }

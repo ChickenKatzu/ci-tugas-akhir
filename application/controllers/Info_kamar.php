@@ -69,4 +69,5 @@ class Info_kamar extends CI_Controller {
 		$this->m_kamar->update_data($where,$data,'kamar');
 		redirect('info_kamar');
 	}
+	
 }

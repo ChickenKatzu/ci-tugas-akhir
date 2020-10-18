@@ -9,9 +9,9 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('header/login');
+		$this->load->view('header/home');
 		$data['kamar']=$this->m_kamar->tampil_data()->result();
 		$this->load->view('home/index',$data);
-		$this->load->view('footer/login');
+		$this->load->view('footer/home');
 	}
 }

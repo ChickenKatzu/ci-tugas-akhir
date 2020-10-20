@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kos R-Cell</title>
   <link rel="icon" href="<?php echo base_url(); ?>assets/img/favicon1.png" type="image/png">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/login1.css">
+  <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/login1.css"> -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/home1.css">
   <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/favicon1.png" type="image/x-icon">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fontawesome-free/css/all.min.css">

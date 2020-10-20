@@ -26,11 +26,11 @@
   <?php 
   $no=1;
 
-  foreach($user as $k)
+  foreach($user->result() as $k)
   {
     ?>
     <tr>
-      <td><?php echo $no++ ?></td>
+      <td><?php echo $k->id ?></td>
       <td><?php echo $k->email ?></td>
       <td><?php echo $k->alamat ?></td>
       <td><?php echo $k->nama ?></td>
@@ -51,4 +51,13 @@
 </table>
 </div>
 </div>
+
+
 </section>
+
+<div class="row">
+                      <div class="col">
+                        <!--Tampilkan pagination-->
+                        <?php echo $pagination; ?>
+                      </div>
+                    </div>

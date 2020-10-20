@@ -9,6 +9,14 @@ class M_user extends CI_Model{
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
+
+	function cek($email, $password)
+	{
+		$this->db->select('*');
+		$this->db->where(array('password'=> $password,'email' => $email));
+		
+		return $this->db->get('user');
+	}
 	function edit_data($where, $table)
 	{
 		return $this->db->get_where($table,$where);
@@ -27,5 +35,19 @@ class M_user extends CI_Model{
 	{
 		$this->db->where($where);
 		$this->db->delete($table);
+	}
+
+
+	function get_user_list($limit, $start){
+
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->order_by("id", "asc");
+		$this->db->limit($limit, $start);
+		if($queryGetUserActivityData=$this->db->get()){
+			return $queryGetUserActivityData;
+		}else{
+			return 'data not entry';
+		}
 	}
 }

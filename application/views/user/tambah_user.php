@@ -30,11 +30,21 @@
           <label for="hargabulanan">pekerjaan</label>
           <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan">
         </div>
+
+        <div class="form-group col-md-6">
+          <label for="hargabulanan">Level</label>
+          <select class="form-control" name="user_level">
+            <option value="">-</option>
+            <option value="admin">admin</option>
+            <option value="owner">owner</option>
+          </select>
+        </div>
+
       </div>
-      <div class="form-group">
+      <!--<div class="form-group">
         <label for="uploadGambar">Gambar/Foto</label>
         <input type="file" class="form-control-file" id="uploadGambar">
-      </div>
+      </div>-->
       <button type="submit" class="btn btn-primary">Submit</button>
       <a href="<?php echo base_url('info_kamar') ?>">
         <button type="button" class="btn btn-default">Cancel</button>

@@ -10,23 +10,23 @@
 						<div class="row">
 							<div class="col-md-9 col-lg-8 mx-auto">
 								<h1 class="login-heading mb-3 text-center">
-									<a href="<?php echo base_url(); ?>home">
+									<a href="<?php echo base_url(); ?>">
 										<button class="btn" href="#" active>
 											KOS R-CELL
 										</button>
 									</a>
 								</h1>
-								<form>
+								<form action="<?php echo base_url('userController/getLogin') ?>" method="post">
 									<div class="form-label-group">
 										<input type="text" id="inputUsername"  name="email" class="form-control" placeholder="Email">
 										<label for="inputUsername">Email</label>
 									</div>
 
 									<div class="form-label-group">
-										<input type="password" id="inputPassword" class="form-control" placeholder="password">
+										<input type="password" id="inputPassword" name="password" class="form-control" placeholder="password">
 										<label for="inputPassword">Password</label>
 									</div>
-									<a href="<?php echo base_url() ?>dashboard">
+									<a href="<?php echo base_url() ?>">
 										<button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Login</button>
 									</a>									
 								</form>

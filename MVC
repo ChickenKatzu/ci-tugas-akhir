@@ -9,20 +9,22 @@ OOP
 
 
 Class Diagram
+Class  adalah Controller SESUAIKAN DOKUMEN
 
-1. Admin
-2. Owner
-3. User
-4. Booking
-5. Kos
-6. Notification
-=================================
-3. User
-	/admin/usermengent
-	/admin/kos
-4. Booking
-5. Kos
-6. Notification
+1. UserController
+	home()
+	register()
+	login()
+	user_management()
+	insert_user()
+2. Booking
+3. Kamar Controller
+	info kamar
+	error
+4. Notification
+
+NB:
+Info kamar pindah kamarcontroller
 
 
 ERD
@@ -31,4 +33,31 @@ ERD
 2. Booking "pemesanan"
 3. Kos "Kamar"
 4. Notification
+
+
+
+url : https://aloi.com/user/kamar = page
+
+stuructur
+url :https://aloi.com/segment1/segment2/segmentn
+
+
+
+
+
+base_url = https://aloi.com/
+Controller = segment1 
+function = segment2
+
+
+
+
+$route['kamar'] = 'user/kamar'
+
+
+redirect = segment1/segment2/segment3--
+
+
+
+redirect = controller/function
 

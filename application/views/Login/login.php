@@ -16,14 +16,14 @@
 										</button>
 									</a>
 								</h1>
-								<form action="<?php echo base_url('userController/getLogin') ?>" method="post">
+								<form action="<?php echo base_url('usercontroller/getlogin') ?>" method="post">
 									<div class="form-label-group">
-										<input type="text" id="inputUsername"  name="email" class="form-control" placeholder="Email">
+										<input type="mail" id="inputUsername"  name="email" class="form-control" placeholder="Email" required>
 										<label for="inputUsername">Email</label>
 									</div>
 
 									<div class="form-label-group">
-										<input type="password" id="inputPassword" name="password" class="form-control" placeholder="password">
+										<input type="password" id="inputPassword" name="password" class="form-control" placeholder="password" required>
 										<label for="inputPassword">Password</label>
 									</div>
 									<a href="<?php echo base_url() ?>">

@@ -6,7 +6,7 @@
        </div>
        <div class="card-body">
         <h5 style="margin-bottom: 2rem; font-weight: 300; font-size: 1.5rem; text-align: center">Register</h5>
-         <form class="form-signin" action="<?php echo base_url('register/index') ?>" method="post">
+         <form class="form-signin" action="<?php echo base_url('register') ?>" method="post">
           <div class="form-label-group">
             <input type="text" id="inputnama" name="nama" class="form-control" placeholder="Nama" required autofocus>
             <label for="inputnama">Nama</label>
@@ -50,7 +50,7 @@
           </div>
 
           <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="submit">Register</button>
-          <a class="d-block text-center mt-2 small" href="<?php echo base_url(); ?>login">Already Have A Account?</a>
+          <a class="d-block text-center mt-2 small" href="<?php echo base_url('login'); ?>">Already Have A Account?</a>
           <hr class="my-4">
         </form>
       </div>

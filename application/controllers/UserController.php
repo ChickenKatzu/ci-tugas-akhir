@@ -12,7 +12,6 @@ class UserController extends CI_Controller {
 		$this->load->library('pagination');
 	}
 
-
 	public function home()
 	{
 		$this->load->view('header/home');
@@ -21,6 +20,14 @@ class UserController extends CI_Controller {
 		$this->load->view('footer/home');
 	}
 
+	
+	public function error()
+	{
+		$this->load->view('header/login');
+		$this->output->set_status_header('404');
+		$this->load->view('404/404');
+		$this->load->view('footer/login');
+	}
 
 	public function login()
 	{
@@ -52,15 +59,15 @@ class UserController extends CI_Controller {
 			if($this->session->userdata('level') == 'owner' ) 
 			{
 				$idUser = $this->session->idUser;
-				redirect('owner');
+				redirect('kamarcontroller/owner');
 			}
 			elseif($this->session->userdata('level') == 'user')
 			{
-				redirect('user');
+				redirect('kamarcontroller/user');
 			}
 			elseif($this->session->userdata('level') == 'admin')
 			{
-				redirect('admin');
+				redirect('kamarcontroller/admin');
 			}
 		}
 		else
@@ -75,16 +82,14 @@ class UserController extends CI_Controller {
 		redirect('home');
 	}
 
-	public function user()
-	{
-		$this->load->view('header/header');
-		$this->load->view('dashboard/dashboard_user');
-		$this->load->view('footer/ft_footer');
-	}
-
 	public function register()
 	{
-		if(isset($_POST['submit'])){
+		$this->load->view("header/register");
+		$this->load->view("register/register");
+		$this->load->view("footer/ft_footer");
+
+		if(isset($_POST['submit']))
+		{
 			$nama=$this->input->post('nama');
 			$alamat=$this->input->post('alamat');
 			$tanggal=$this->input->post('tanggal');
@@ -102,13 +107,12 @@ class UserController extends CI_Controller {
 				'password'=> $password,
 				'user_level' => 'user'
 			);
-			$this->m_register->input_data($data,'user');
+			$test=$this->m_register->input_data($data,'user');
 			redirect('register');
-		}else{
-			$this->load->view("header/register");
-			$this->load->view("register/register");
-			$this->load->view("footer/footer");
+			// echo json_encode($test->$result());
+			// echo $cek->num_rows();
 		}
+
 	}
 
 
@@ -119,42 +123,42 @@ class UserController extends CI_Controller {
 
 		$dataLength = count($user);
 
-					$config			 = array();
-					$config['base_url'] = base_url().'UserController/user_management/'.$this->uri->segment(4); //site url
-					$config['total_rows'] = $dataLength; //total row
-					$config['per_page'] = 5;  //show record per halaman
-					$config["uri_segment"] = 3;  // uri parameter
-					$choice = $config["total_rows"] / $config["per_page"];
-					$config["num_links"] = floor($choice);
+		$config = array();
+		$config['base_url'] = base_url().'UserController/user_management/'.$this->uri->segment(4); //site url
+		$config['total_rows'] = $dataLength; //total row
+		$config['per_page'] = 5;  //show record per halaman
+		$config["uri_segment"] = 3;  // uri parameter
+		$choice = $config["total_rows"] / $config["per_page"];
+		$config["num_links"] = floor($choice);
 
-				 	$config['first_link']	   = 'First';
-					$config['last_link']		= 'Last';
-					$config['next_link']		= 'Next';
-					$config['prev_link']		= 'Prev';
-					$config['full_tag_open']	= '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
-					$config['full_tag_close']   = '</ul></nav></div>';
-					$config['num_tag_open']	 = '<li class="page-item"><span class="page-link">';
-					$config['num_tag_close']	= '</span></li>';
-					$config['cur_tag_open']	 = '<li class="page-item active"><span class="page-link">';
-					$config['cur_tag_close']	= '<span class="sr-only">(current)</span></span></li>';
-					$config['next_tag_open']	= '<li class="page-item"><span class="page-link">';
-					$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
-					$config['prev_tag_open']	= '<li class="page-item"><span class="page-link">';
-					$config['prev_tagl_close']  = '</span>Next</li>';
-					$config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
-					$config['first_tagl_close'] = '</span></li>';
-					$config['last_tag_open']	= '<li class="page-item"><span class="page-link">';
-					$config['last_tagl_close']  = '</span></li>';
+		$config['first_link']	   = 'First';
+		$config['last_link']		= 'Last';
+		$config['next_link']		= 'Next';
+		$config['prev_link']		= 'Prev';
+		$config['full_tag_open']	= '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+		$config['full_tag_close']   = '</ul></nav></div>';
+		$config['num_tag_open']	 = '<li class="page-item"><span class="page-link">';
+		$config['num_tag_close']	= '</span></li>';
+		$config['cur_tag_open']	 = '<li class="page-item active"><span class="page-link">';
+		$config['cur_tag_close']	= '<span class="sr-only">(current)</span></span></li>';
+		$config['next_tag_open']	= '<li class="page-item"><span class="page-link">';
+		$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+		$config['prev_tag_open']	= '<li class="page-item"><span class="page-link">';
+		$config['prev_tagl_close']  = '</span>Next</li>';
+		$config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+		$config['first_tagl_close'] = '</span></li>';
+		$config['last_tag_open']	= '<li class="page-item"><span class="page-link">';
+		$config['last_tagl_close']  = '</span></li>';
 
-					$this->pagination->initialize($config);
-					$data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+		$this->pagination->initialize($config);
+		$data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
 
 					// echo $this->uri->segment(4);
-					$countVacancy = $config['total_rows'];
+		$countVacancy = $config['total_rows'];
 
-					$data['user'] = $this->m_user->get_user_list($config["per_page"], $data['page']);
-					$data['pagination'] = $this->pagination->create_links();
+		$data['user'] = $this->m_user->get_user_list($config["per_page"], $data['page']);
+		$data['pagination'] = $this->pagination->create_links();
 
 		$this->load->view("user/index",$data);
 		$this->load->view("footer/footer");

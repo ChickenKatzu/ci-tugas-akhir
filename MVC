@@ -9,7 +9,7 @@ OOP
 
 
 Class Diagram
-Class  adalah Controller SESUAIKAN DOKUMEN
+Class  adalah Controller || SESUAIKAN DOKUMEN ||
 
 1. UserController
 	home()
@@ -17,11 +17,20 @@ Class  adalah Controller SESUAIKAN DOKUMEN
 	login()
 	user_management()
 	insert_user()
-2. Booking
+	error()
+
+2. BookingController
+	info kamar()
+	booking ()
+
 3. Kamar Controller
-	info kamar
-	error
+	dashboard_user()
+	dashboard_admin()
+	dashboard_owner()
+
+
 4. Notification
+	transaksi()
 
 NB:
 Info kamar pindah kamarcontroller
@@ -61,3 +70,112 @@ redirect = segment1/segment2/segment3--
 
 redirect = controller/function
 
+
+
+//
+Controllers
+-- Front/
+---- HomeController@index
+---- RoomsController@index
+---- RoomsController@details
+---- RoomsController@booking
+---- AuthController@login
+---- AuthController@register
+---- AuthController@forgot_password
+-- User/
+---- DashboardController@index
+---- BookingsController@index
+---- BookingsController@show
+---- ProfileController@index
+---- ProfileController@update
+---- ProfileController@password
+---- ProfileController@password_update
+-- Admin/
+---- DashboardController@index
+------ RoomsController@index
+------ RoomsController@show
+------ RoomsController@create
+------ RoomsController@store
+------ RoomsController@edit
+------ RoomsController@update
+------ RoomsController@destroy
+------ BookingsController@index
+------ BookingsController@review
+------ BookingsController@update
+------ UsersController@index
+------ UsersController@show
+------ UsersController@create
+------ UsersController@store
+------ UsersController@edit
+------ UsersController@update
+------ UsersController@destroy
+
+
+Tabel
+users 
+-- id
+-- email
+-- password
+-- fullname
+-- address
+-- dob
+-- phone
+-- role
+-- created_at
+-- updated_at
+
+rooms
+-- id
+-- name
+-- price
+-- available
+-- total
+-- desc
+-- created_at
+-- updated_at
+
+bookings
+-- id
+-- user_id
+-- room_id
+-- start_date
+-- end_date
+-- approval_st ENUM waiting,approved,rejected
+-- created_at
+-- updated_at
+
+checkout process
+$room_id = $this->input->post('room_id');
+// cek ke database available room by room_id
+$room = $this->db->select('*')->from('rooms')->where('id',$room_id)->get()->row();
+if($room->available >= 1){
+	// process
+	$params = array(
+		'user_id' => $this->input->post('user_id'),
+		'room_id' => $this->input->post('room_id'),
+		'start_date' => $this->input->post('start_date'),
+		'end_date' => $this->input->post('end_date'),
+		'approval_st' => 'waiting',
+		'created_at' => date('Y-m-d H:i:s')
+	);
+	$this->db->insert('bookings',$params);
+
+	// kurangi available di rooms
+	$params2 = array(
+		'available' => $room->available - 1,
+		'updated_at' => date('Y-m-d H:i:s')
+	);
+	
+	if($this->db->update('rooms',$params2,array('room_id',$room_id))){
+		set_flashdata('success','booking berhasil');
+		redirect ke halaman booking user
+	}
+}else{
+	return redirect ke halaman sebelumnya
+	dan kasih flash
+}
+
+select dari booking order terbaru yang statusnya waiting
+
+
+// logic 

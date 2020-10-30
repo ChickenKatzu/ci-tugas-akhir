@@ -50,9 +50,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'userController/home';
+$route['info_kamar'] = 'kamarController/info_kamar';
+$route['tambah_kamar'] = 'kamarController/tambah_kamar';
 $route['register'] = 'userController/register';
 $route['login'] = 'userController/login';
+$route['logout'] = 'userController/logout';
 $route['user'] = 'kamarController/user';
 $route['home'] = 'userController/home';
+$route['dashboarduser'] = 'kamarController/user';
+$route['admin'] = 'kamarController/Admin';
+$route['users'] = 'userController/user_management';
 $route['404_override'] = 'userController/error';
 $route['translate_uri_dashes'] = FALSE;

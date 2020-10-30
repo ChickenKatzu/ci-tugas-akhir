@@ -46,7 +46,7 @@
         <input type="file" class="form-control-file" id="uploadGambar">
       </div>-->
       <button type="submit" class="btn btn-primary">Submit</button>
-      <a href="<?php echo base_url('info_kamar') ?>">
+      <a href="<?php echo base_url() ?>users">
         <button type="button" class="btn btn-default">Cancel</button>
       </a>
     </form>

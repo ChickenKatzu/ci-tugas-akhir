@@ -1,5 +1,6 @@
 <?php 
-class UserController extends CI_Controller {
+class UserController extends CI_Controller 
+{
 	function __construct()
 	{
 		parent::__construct();
@@ -73,10 +74,11 @@ class UserController extends CI_Controller {
 		else
 		{
 			$this->session->set_flashdata('pesan', 'Maaf, kombinasi username dengan password salah.');
+			// var_dump($this->session->flashdata('pesan'));
 			redirect('login');
 		}
 	}
-	function logout()
+	public function logout()
 	{
 		$this->session->sess_destroy();
 		redirect('home');
@@ -93,7 +95,7 @@ class UserController extends CI_Controller {
 			$nama=$this->input->post('nama');
 			$alamat=$this->input->post('alamat');
 			$tanggal=$this->input->post('tanggal');
-			$no_hp=$this->input->post('nohp');
+			$nohp=$this->input->post('nohp');
 			$pekerjaan=$this->input->post('pekerjaan');
 			$email=$this->input->post('email');
 			$password=$this->input->post('password');
@@ -101,7 +103,7 @@ class UserController extends CI_Controller {
 				'nama'=> $nama,
 				'alamat'=> $alamat,
 				'tanggal_lahir'=> $tanggal,
-				'no_hp'=> $no_hp,
+				'nohp'=> $nohp,
 				'pekerjaan'=> $pekerjaan,
 				'email'=> $email,
 				'password'=> $password,
@@ -118,7 +120,7 @@ class UserController extends CI_Controller {
 
 	public function user_management()
 	{
-		$this->load->view("header/header");
+		$this->load->view("header/header_admin");
 		$user=$this->m_user->tampil_data()->result();
 
 		$dataLength = count($user);
@@ -184,7 +186,7 @@ class UserController extends CI_Controller {
 			'email'=> $email,
 			'alamat'=> $alamat,
 			'tanggal_lahir'=> $tanggallahir,
-			'no_hp'=> $nohp,
+			'nohp'=> $nohp,
 			'umur'=> $umur,
 			'pekerjaan'=> $pekerjaan,
 			'user_level'=> $level
@@ -192,38 +194,49 @@ class UserController extends CI_Controller {
 		$this->m_user->input_data($data,'user');
 		redirect('UserController');
 	}
-	// public function edit($id)
-	// {
-	// 	$this->load->view("header/header");
-	// 	$where=array('id_kamar'=>$id);
-	// 	$data['kamar']=$this->m_data->edit_data($where,'kamar')->result();
-	// 	$this->load->view('edit_kamar',$data);
-	// 	$this->load->view("footer/footer");
-	// }
-	// public function hapus($id)
-	// {
-	// 	$where = array('id_kamar' => $id);
-	// 	$this->m_data->hapus_data($where,'kamar');
-	// 	redirect('info_kamar');
-	// }
-	// public function update()
-	// {
-	// 	$id = $this->input->post('idkamar');
-	// 	$ukuran_kamar = $this->input->post('ukurankamar');
-	// 	$status = $this->input->post('status');
-	// 	$harga_bulanan = $this->input->post('hargabulanan');
+	public function edit($id)
+	{
+		$this->load->view("header/header_admin");
+		$where=array('id'=>$id);
+		$data['user']=$this->m_user->edit_data($where,'user')->result();
+		$this->load->view('user/edit_user',$data);
+		$this->load->view("footer/ft_footer");
+	}
+	public function hapus($id)
+	{
+		$where = array('id' => $id);
+		$this->m_user->hapus_data($where,'user');
+		redirect('users');
+	}
+	public function update()
+	{
+		$id = $this->input->post('id');
+		$nama = $this->input->post('nama');
+		$email = $this->input->post('email');
+		$alamat = $this->input->post('alamat');
+		$tanggal = $this->input->post('tanggal_lahir');
+		$nohp = $this->input->post('nohp');
+		$pekerjaan = $this->input->post('pekerjaan');
+		
+		$data = array(
+			'nama'=>$nama,
+			'alamat'=>$alamat,
+			'email'=>$email,
+			'tanggal_lahir'=>$tanggal,
+			'nohp'=>$nohp,
+			'pekerjaan'=>$pekerjaan,
+			'user_level'=>'user'
+		);
 
-	// 	$data = array(
-	// 		'ukuran_kamar' => $ukuran_kamar,
-	// 		'status' => $status,
-	// 		'harga_bulanan' => $harga_bulanan
-	// 	);
+		$where = array(
+			'id' => $id
+		);
 
-	// 	$where = array(
-	// 		'id_kamar' => $id
-	// 	);
-
-	// 	$this->m_data->update_data($where,$data,'kamar');
-	// 	redirect('info_kamar');
-	// }
+		$TestUser=$this->m_user->update_data($where,$data,'user');
+		redirect('users');
+		// echo $TestUser -> num_rows($data);
+		// echo json_encode($TestUser -> $result());
+		// $out = array_values($TestUser);
+		// json_encode($out);
+	}
 }

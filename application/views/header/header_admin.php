@@ -104,7 +104,7 @@
           <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <li class="nav-item">
-                <a href="<?php echo base_url('Dashboard') ?>" class="nav-link">
+                <a href="<?php echo base_url() ?>admin" class="nav-link">
                   <i class="nav-icon fa fa-dashboard"></i>
                   <p>
                     Dashboard
@@ -113,7 +113,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('info_kamar') ?>" class="nav-link">
+                <a href="<?php echo base_url() ?>info_kamar" class="nav-link">
                   <i class="nav-icon fa fa-home"></i>
                   <p>
                     Info Kamar
@@ -122,7 +122,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('info_kamar/tambah') ?>" class="nav-link">
+                <a href="<?php echo base_url() ?>tambah_kamar" class="nav-link">
                   <i class="nav-icon fa fa-bed"></i>
                   <p>
                     Tambah Kamar
@@ -149,7 +149,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('not_found/error') ?>" class="nav-link">
+                <a href="<?php echo base_url() ?>404_override" class="nav-link">
                   <i class="nav-icon fas fa-scroll"></i>
                   <p>
                     404
@@ -158,7 +158,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('usercontroller') ?>" class="nav-link">
+                <a href="<?php echo base_url() ?>users" class="nav-link">
                   <i class="nav-icon fas fa-user"></i>
                   <p>
                     Users

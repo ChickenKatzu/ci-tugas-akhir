@@ -3,7 +3,7 @@
 <!-- Main content -->
 <section class="content">
  <div class="wrapper">
-   <a href="<?php echo base_url('info_kamar/tambah') ?>">
+   <a href="<?php echo base_url() ?>tambah_kamar">
     <button type="submit" class="btn btn-primary btn-lg mx-right">Tambah Kamar</button>
   </a>
   <div class="box-body table-responsive table-hover">
@@ -33,10 +33,10 @@
       <td>Rp. <?php echo $k->harga_bulanan ?></td>
       <td><?php echo $k->status ?></td>
       <td>
-        <a class="btn btn-warning" href="<?php echo base_url('info_kamar/edit/'.$k->id_kamar) ?>">
+        <a class="btn btn-warning" href="<?php echo base_url('kamarcontroller/edit/'.$k->id_kamar) ?>">
           <i class="fa fa-edit"></i>
         </a>
-        <a class="btn btn-danger" href="<?php echo base_url('info_kamar/hapus/'.$k->id_kamar) ?>">
+        <a class="btn btn-danger" href="<?php echo base_url('kamarcontroller/hapus/'.$k->id_kamar) ?>">
          <i class="fa fa-trash-o"></i>
        </a>
      </td>

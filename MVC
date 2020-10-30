@@ -11,25 +11,29 @@ OOP
 Class Diagram
 Class  adalah Controller || SESUAIKAN DOKUMEN ||
 
-1. UserController
+1. UserController DONE!100%
 	home()
 	register()
+	logout()
 	login()
 	user_management()
 	insert_user()
 	error()
 
-2. BookingController
-	info kamar()
+2. BookingController 0%
 	booking ()
 
-3. Kamar Controller
+3. Kamar Controller 50%
 	dashboard_user()
 	dashboard_admin()
 	dashboard_owner()
+	info kamar()
+	//fungsi tambah, tambahkan enum status available/booked
+					 tambahkan enum ukuran kaman
+					 tambahkan enum harga bulanan	
 
 
-4. Notification
+4. Notification0%
 	transaksi()
 
 NB:

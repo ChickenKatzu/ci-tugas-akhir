@@ -12,13 +12,13 @@
 
      <tr class="label-primary">
       <th>No</th>
-      <th>email</th>
-      <th>alamat</th>
-      <th>nama</th>
-      <th>tanggal_lahir</th>
-      <th>no_hp</th>
-      <th>umur</th>
-      <th>pekerjaan</th>
+      <th>Nama</th>
+      <th>Email</th>
+      <th>Alamat</th>
+      <th>Tanggal Lahir</th>
+      <th>Nomor Handphone</th>
+      <!-- <th>umur</th> -->
+      <th>Pekerjaan</th>
 
       <th>Action</th>
     </tr>
@@ -31,18 +31,18 @@
     ?>
     <tr>
       <td><?php echo $k->id ?></td>
+      <td><?php echo $k->nama ?></td>
       <td><?php echo $k->email ?></td>
       <td><?php echo $k->alamat ?></td>
-      <td><?php echo $k->nama ?></td>
       <td><?php echo $k->tanggal_lahir ?></td>
-      <td><?php echo $k->no_hp ?></td>
-      <td><?php echo $k->umur ?></td>
+      <td><?php echo $k->nohp ?></td>
+      <!-- <td><?php echo $k->umur ?></td> -->
       <td><?php echo $k->pekerjaan ?></td>
       <td>
-        <a class="btn btn-warning" href="#">
+        <a class="btn btn-warning" href="<?php echo base_url('usercontroller/edit/'.$k->id) ?>">
           <i class="fa fa-edit"></i>
         </a>
-        <a class="btn btn-danger" href="#">
+        <a class="btn btn-danger" href="<?php echo base_url('usercontroller/hapus/'.$k->id) ?>">
          <i class="fa fa-trash-o"></i>
        </a>
      </td>
@@ -56,8 +56,8 @@
 </section>
 
 <div class="row">
-                      <div class="col">
-                        <!--Tampilkan pagination-->
-                        <?php echo $pagination; ?>
-                      </div>
-                    </div>
+  <div class="col">
+    <!--Tampilkan pagination-->
+    <?php echo $pagination; ?>
+  </div>
+</div>

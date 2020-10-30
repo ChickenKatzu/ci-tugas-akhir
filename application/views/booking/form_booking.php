@@ -9,8 +9,6 @@
            <?php foreach ($kamar as $k ) { ?>
              <?php if($k->status == 'Available'){ ?>
               <option value="<?php echo $k->id_kamar; ?>"><?php echo $k->nama_kamar ?></option>
-          
-            
           <?php }} ?>
         </select>
       </div>

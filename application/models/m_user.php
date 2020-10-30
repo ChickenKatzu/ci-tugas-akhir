@@ -21,12 +21,6 @@ class M_user extends CI_Model{
 	{
 		return $this->db->get_where($table,$where);
 	}
-	// function tampil_data_join(){
-	// 	$this->db->select('id_kamar','nama_kamar','ukuran_kamar','harga_kamar','nama');
-	// 	$this->db->from('kamar');
-	// 	$this->db->join('user');
-	// 	$query=$this->db->get();
-	// }
 	function input_data($data, $table)
 	{
 		$this->db->insert($table, $data);
@@ -50,4 +44,10 @@ class M_user extends CI_Model{
 			return 'data not entry';
 		}
 	}
+	// function tampil_data_join(){
+	// 	$this->db->select('id_kamar','nama_kamar','ukuran_kamar','harga_kamar','nama');
+	// 	$this->db->from('kamar');
+	// 	$this->db->join('user');
+	// 	$query=$this->db->get();
+	// }
 }

@@ -7,14 +7,14 @@ class Info_kamar extends CI_Controller {
 		$this->load->helper('form','url');
 	}
 
-	public function index()
+	public function info_kamar()
 	{
 		$this->load->view("header/header");
 		$data['kamar']=$this->m_kamar->tampil_data()->result();
 		$this->load->view("info_kamar",$data);
 		$this->load->view("footer/footer");
 	}
-	public function tambah()
+	public function tambah_kamar()
 	{
 		$this->load->view("header/header");
 		$this->load->view('tambah_kamar');
@@ -55,11 +55,13 @@ class Info_kamar extends CI_Controller {
 		$ukuran_kamar = $this->input->post('ukurankamar');
 		$status = $this->input->post('status');
 		$harga_bulanan = $this->input->post('hargabulanan');
+		$namakamar = $this->input->post('nama_kamar');
 
 		$data = array(
 			'ukuran_kamar' => $ukuran_kamar,
 			'status' => $status,
-			'harga_bulanan' => $harga_bulanan
+			'harga_bulanan' => $harga_bulanan,
+			'nama_kamar'=> $namakamar
 		);
 
 		$where = array(

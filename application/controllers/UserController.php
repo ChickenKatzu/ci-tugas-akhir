@@ -8,9 +8,11 @@ class UserController extends CI_Controller
 		$this->load->model('m_user');
 		$this->load->model('m_register');
 		$this->load->model('m_kamar');
-		$this->load->helper('form','url');
+		$this->load->helper('form');
+		$this->load->helper('url');
 		$this->load->library('form_validation');
 		$this->load->library('pagination');
+		$this->load->library('session');
 	}
 
 	public function home()
@@ -47,35 +49,38 @@ class UserController extends CI_Controller
 
 		$cek = $this->m_user->cek($email, $password);
 
-		// echo json_encode($cek->result());
-		// echo $cek->num_rows();
+		// $error = $this->db->error($cek);
+		echo json_encode($cek->result());
+		echo $cek->num_rows();
 		if($cek->num_rows() == 1)
 		{
 			foreach($cek->result() as $data){
 				$sess_data['id'] = $data->id;
 				$sess_data['email'] = $data->email;
 				$sess_data['level'] = $data->user_level;
-				$this->session->set_userdata($sess_data);
+				
 			}
-			if($this->session->userdata('level') == 'owner' ) 
+			$this->session->set_userdata('session_user', $sess_data);
+			if($sess_data['level'] == 'owner' ) 
 			{
-				$idUser = $this->session->idUser;
-				redirect('kamarcontroller/owner');
+				// $idUser = $this->session->set_userdata('idUser', $idUser);
+				redirect('owner');
 			}
-			elseif($this->session->userdata('level') == 'user')
+			elseif($sess_data['level'] == 'user')
 			{
-				redirect('kamarcontroller/user');
+				redirect('user');
 			}
-			elseif($this->session->userdata('level') == 'admin')
+			elseif($sess_data['level'] == 'admin')
 			{
-				redirect('kamarcontroller/admin');
+				redirect('admin');
 			}
 		}
 		else
 		{
 			$this->session->set_flashdata('pesan', 'Maaf, kombinasi username dengan password salah.');
 			// var_dump($this->session->flashdata('pesan'));
-			redirect('login');
+			// echo json_encode($cek);
+			// redirect('login');
 		}
 	}
 	public function logout()
@@ -86,6 +91,15 @@ class UserController extends CI_Controller
 
 	public function register()
 	{
+		$this->form_validation->set_rules('nama', 'required');
+		$this->form_validation->set_rules('alamat', 'required');
+		$this->form_validation->set_rules('tanggal', 'required');
+		$this->form_validation->set_rules('nohp', 'required');
+		$this->form_validation->set_rules('pekerjaan', 'required');
+		$this->form_validation->set_rules('email', 'required');
+		$this->form_validation->set_rules('password', 'required|min_length[4]|matches[cpassword]', ['matches' => 'password not match!', 'min_length' => 'password too short!']);
+		$this->form_validation->set_rules('cpassword', 'required|min_length[4]|matches[password]');
+
 		$this->load->view("header/register");
 		$this->load->view("register/register");
 		$this->load->view("footer/ft_footer");
@@ -110,7 +124,10 @@ class UserController extends CI_Controller
 				'user_level' => 'user'
 			);
 			$test=$this->m_register->input_data($data,'user');
-			redirect('register');
+			$this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">
+				Selamat! Akun telah dibuat silahkan login!
+				</div>');
+			redirect('login');
 			// echo json_encode($test->$result());
 			// echo $cek->num_rows();
 		}

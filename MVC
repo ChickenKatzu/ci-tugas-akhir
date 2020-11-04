@@ -27,6 +27,7 @@ Class  adalah Controller || SESUAIKAN DOKUMEN ||
 	dashboard_user()
 	dashboard_admin()
 	dashboard_owner()
+	payment()
 	info kamar()
 	//fungsi tambah, tambahkan enum status available/booked
 					 tambahkan enum ukuran kaman

@@ -67,7 +67,7 @@
 </header>
 
 <section class="py-2">
-  <div class="container col-lg-11 col-sm-11 mx-auto">
+  <div class="container col-lg-11 col-lg-12 col-lg-10 col-lg-9 col-lg-8 col-sm-11 col-md-10 col-md-9 col-md-8 col-md-7 col-md-6 col-md-5 col-xs-2 mx-auto">
     <div class="card-deck" >
       <?php foreach ($kamar as $k){ ?>
         <div class="card">
@@ -82,7 +82,7 @@
             <li class="list-group-item" name="status"><?php echo $k->status ?></li>
           </ul>
           <div class="card-body">
-            <a href="<?php echo base_url('bookingcontroller/tambah') ?>" class="card-link">
+            <a href="<?php echo base_url() ?>pesankamar" class="card-link">
               <button class="btn btn-primary">Booking</button></a>
             </div>
           </div>

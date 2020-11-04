@@ -16,6 +16,27 @@
 	</div>
 </footer>
 </body>
+<!-- load js/jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- date pick 30 days from now -->
+<script type="text/javascript">
+	jQuery(document).ready(()=>{
+		jQuery('#tanggalmasuk').change(()=>{
+
+			var _date = jQuery('#tanggalmasuk').val();
+
+			var res = new Date(_date).setTime(new Date(_date).getTime() + (31 * 24 * 60 * 60 * 1000));
+			var month = new Date(res).getMonth()+1;
+			var day = new Date(res).getDate();
+			var output = new Date(res).getFullYear() + '-' +
+			(month < 10 ? '0' : '') + month + '-' +
+			(day < 10 ? '0' : '') + day;
+
+			jQuery('#tanggalkeluar').val(output);
+
+		})
+	})
+</script>
 <!-- jQuery -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

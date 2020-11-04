@@ -51,10 +51,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'userController/home';
 $route['info_kamar'] = 'kamarController/info_kamar';
+$route['payment'] = 'bookingcontroller/payment';
+$route['viewpayment'] = 'bookingcontroller/konfirmasi_payment';
 $route['tambah_kamar'] = 'kamarController/tambah_kamar';
 $route['register'] = 'userController/register';
 $route['login'] = 'userController/login';
 $route['logout'] = 'userController/logout';
+$route['getlogin'] = 'userController/getlogin';
+$route['pesankamar'] = 'bookingcontroller/pesankamar';
 $route['user'] = 'kamarController/user';
 $route['home'] = 'userController/home';
 $route['dashboarduser'] = 'kamarController/user';

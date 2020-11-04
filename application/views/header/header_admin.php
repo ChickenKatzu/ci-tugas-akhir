@@ -131,28 +131,10 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?php echo base_url() ?>payment" class="nav-link">
                   <i class="nav-icon fas fa-credit-card"></i>
                   <p>
                     Pembayaran
-                    <span class="right badge badge-danger">New</span>
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fa fa-gears"></i>
-                  <p>
-                    Settings
-                    <span class="right badge badge-danger">New</span>
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url() ?>404_override" class="nav-link">
-                  <i class="nav-icon fas fa-scroll"></i>
-                  <p>
-                    404
                     <span class="right badge badge-danger">New</span>
                   </p>
                 </a>
@@ -193,4 +175,4 @@
         <!-- /.content-header -->
 
 
-  
+        

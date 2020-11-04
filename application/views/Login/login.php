@@ -16,7 +16,8 @@
 										</button>
 									</a>
 								</h1>
-								<form action="<?php echo base_url('usercontroller/getlogin') ?>" method="post">
+								<?php echo $this->session->flashdata('pesan') ?>
+								<form action="<?php echo base_url() ?>getlogin" method="post">
 									<div class="form-label-group">
 										<input type="mail" id="inputUsername"  name="email" class="form-control" placeholder="Email" required>
 										<label for="inputUsername">Email</label>

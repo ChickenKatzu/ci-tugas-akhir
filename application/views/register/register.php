@@ -8,32 +8,32 @@
         <h5 style="margin-bottom: 2rem; font-weight: 300; font-size: 1.5rem; text-align: center">Register</h5>
          <form class="form-signin" action="<?php echo base_url('register') ?>" method="post">
           <div class="form-label-group">
-            <input type="text" id="inputnama" name="nama" class="form-control" placeholder="Nama" required autofocus>
+            <input type="text" id="inputnama" name="nama" class="form-control" placeholder="Nama" required autofocus value="<?php echo set_value('nama') ?>">
             <label for="inputnama">Nama</label>
           </div>
 
           <div class="form-label-group">
-            <input type="text" name="alamat" placeholder="Alamat" class="form-control" id="inputalamat" required>
+            <input type="text" name="alamat" placeholder="Alamat" class="form-control" id="inputalamat" required value="<?php echo set_value('alamat') ?>">
             <label for="inputalamat">Alamat</label>
           </div>
 
           <div class="form-label-group">
-            <input type="date" name="tanggal" id="tanggal" placeholder="TangalLahir" class="form-control" required>
+            <input type="date" name="tanggal" id="tanggal" placeholder="TangalLahir" class="form-control" required value="<?php echo set_value('tanggal') ?>">
             <label for="tanggal" >Tanggal Lahir</label>
           </div>
 
           <div class="form-label-group">
-            <input type="number" name="nohp" placeholder="NomorHandphone" class="form-control" id="inputnomor" minlength="12">
+            <input type="number" name="nohp" placeholder="NomorHandphone" class="form-control" id="inputnomor" minlength="12" value="<?php echo set_value('nohp') ?>">
             <label for="inputnomor">Nomor Handphone</label>
           </div>
 
           <div class="form-label-group">
-            <input type="text" name="pekerjaan" placeholder="Pekerjaan" class="form-control" id="inputpekerjaan" required>
+            <input type="text" name="pekerjaan" placeholder="Pekerjaan" class="form-control" id="inputpekerjaan" required value="<?php echo set_value('pekerjaan') ?>">
             <label for="inputpekerjaan">Pekerjaan</label>
           </div>
 
           <div class="form-label-group">
-            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required>
+            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required value="<?php echo set_value('email') ?>">
             <label for="inputEmail">Email address</label>
           </div>
 

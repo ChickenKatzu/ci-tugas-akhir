@@ -17,7 +17,7 @@
       <th>Alamat</th>
       <th>Tanggal Lahir</th>
       <th>Nomor Handphone</th>
-      <!-- <th>umur</th> -->
+      <!-- <th>level</th> -->
       <th>Pekerjaan</th>
 
       <th>Action</th>
@@ -36,7 +36,7 @@
       <td><?php echo $k->alamat ?></td>
       <td><?php echo $k->tanggal_lahir ?></td>
       <td><?php echo $k->nohp ?></td>
-      <!-- <td><?php echo $k->umur ?></td> -->
+      <!-- <td><?php echo $k->level ?></td> -->
       <td><?php echo $k->pekerjaan ?></td>
       <td>
         <a class="btn btn-warning" href="<?php echo base_url('usercontroller/edit/'.$k->id) ?>">

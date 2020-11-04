@@ -36,14 +36,14 @@ class KamarController extends CI_Controller
 	}
 	public function info_kamar()
 	{
-		$this->load->view("header/header");
+		$this->load->view("header/header_admin");
 		$data['kamar']=$this->m_kamar->tampil_data()->result();
 		$this->load->view("info_kamar",$data);
 		$this->load->view("footer/footer");
 	}
 	public function tambah_kamar()
 	{
-		$this->load->view("header/header");
+		$this->load->view("header/header_admin");
 		$this->load->view('tambah_kamar');
 		$this->load->view("footer/footer");
 	}
@@ -64,7 +64,7 @@ class KamarController extends CI_Controller
 	}
 	public function edit($id)
 	{
-		$this->load->view("header/header");
+		$this->load->view("header/header_admin");
 		$where=array('id_kamar'=>$id);
 		$data['kamar']=$this->m_kamar->edit_data($where,'kamar')->result();
 		$this->load->view('edit_kamar',$data);

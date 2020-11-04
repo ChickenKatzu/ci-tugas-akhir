@@ -14,10 +14,15 @@ class M_booking extends CI_Model{
 		return $this->db->get_where($table,$where);
 	}
 	function tampil_data_join(){
-		$this->db->select('id_kamar','nama_kamar','ukuran_kamar','harga_kamar','nama');
-		$this->db->from('kamar');
-		$this->db->join('user');
+		$this->db->select('*');
+		$this->db->from('booking b');
+		$this->db->join('user u','u.id = b.id');
+		$this->db->join('kamar k','k.id_kamar = b.id_kamar');
+		$this->db->order_by('b.id_booking', 'asc');
 		$query=$this->db->get();
+		// echo json_encode($query->result());
+		// echo $query->num_rows();
+		return $query->result();
 	}
 	function input_data($data, $table)
 	{

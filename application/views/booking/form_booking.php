@@ -1,7 +1,7 @@
 <div class="breadcrumb">
   <div class="container">
 
-   <form action="<?php echo base_url('bookingcontroller/order') ?>" method="post" onload='getdates();'>
+   <form action="<?php echo base_url('bookingcontroller/order') ?>" method="post">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="idkamar">Nomor Kamar</label>
@@ -20,16 +20,22 @@
         </select>
       </div>
       <?php //foreach ($user as $u ){ ?>
-        
+
 
         <div class="form-group col-md-6">
-          <label for="hargabulanan">Tanggal masuk</label>
+          <label for="tanggalmasuk">Tanggal masuk</label>
           <input type="date" class="form-control" id="tanggalmasuk" name="tanggal_masuk" placeholder="Tanggal Masuk">
         </div>
         
         <div class="form-group col-md-6">
           <label for="tanggal_keluar">Tanggal keluar</label>
           <input type="date" class="form-control" id="tanggalkeluar" name="tanggal_keluar" placeholder="Tanggal keluar" readonly>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="rentang_sewa">Rentang Sewa</label><br>
+          <button type="button" id="3bulan" class="btn btn-primary form-control col-md-3">3 Bulan</button>
+          <button type="button" id="6bulan" class="btn btn-primary form-control col-md-3">6 Bulan</button>
+          <button type="button" id="1tahun" class="btn btn-primary form-control col-md-3">1 tahun</button>
         </div>
         <?php //} ?>
             <!-- <div class="form-group col-md-6">

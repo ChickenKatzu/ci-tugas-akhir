@@ -20,18 +20,23 @@ Class  adalah Controller || SESUAIKAN DOKUMEN ||
 	insert_user()
 	error()
 
-2. BookingController 0%
+2. BookingController 60%
 	booking ()
+	index()->form_booking DONE
+	pesankamar() 50%
+	order()
+	payment() 20%
+	konfirmasi_payment()
 
-3. Kamar Controller 50%
+3. Kamar Controller 80%?
 	dashboard_user()
 	dashboard_admin()
 	dashboard_owner()
 	payment()
 	info kamar()
-	//fungsi tambah, tambahkan enum status available/booked
-					 tambahkan enum ukuran kaman
-					 tambahkan enum harga bulanan	
+	//fungsi tambah, tambahkan enum status available/booked	DONE
+					 tambahkan enum ukuran kaman DONE
+					 tambahkan enum harga bulanan DONE
 
 
 4. Notification0%

@@ -7,8 +7,8 @@
     <button type="submit" class="btn btn-primary btn-lg mx-right">Tambah User</button>
   </a> -->
   
-  <div class="box-body table-responsive table-hover col-md-9 col-md-8 col-md-7 col-md-6 col-xl-12 col-xl-9 col-xl-10 col-xl-8 col-xl-7 col-xl-6 ">
-   <table class="table table-hover table-striped">
+  <div class="box-body table-responsive table-hover col-md-10 col-md-11 col-md-12 col-md-9 col-md-8 col-md-7 col-md-6 col-lg-12 col-lg-9 col-lg-10 col-lg-8 col-lg-7 col-lg-6 col-lg-11 ">
+   <table class="table table-hover table-striped col-md-10 col-md-11 col-md-12 col-md-9 col-md-8 col-md-7 col-md-6 col-lg-12 col-lg-9 col-lg-10 col-lg-8 col-lg-7 col-lg-6 col-lg-11">
     <thead class="thead-dark">
      <tr class="label-primary">
       <th>Nomor Kamar</th>

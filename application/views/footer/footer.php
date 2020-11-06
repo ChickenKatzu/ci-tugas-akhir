@@ -32,6 +32,18 @@
 			(month < 10 ? '0' : '') + month + '-' +
 			(day < 10 ? '0' : '') + day;
 
+			// if $("button".('#3bulan')).click(()=>{
+			// 	var _keluar = jQuery('#tanggalkeluar').val();
+			// 	var _keluar1 = new Date(_keluar).setTime(new Date(_keluar) + (93 * 24 * 60 * 60 * 1000));
+			// 	var bulan = new Date(_keluar1).getMonth()+1;
+			// 	var hari = new Date(_keluar1).getDate();
+			// 	var output1 = new Date(_keluar1).getFullYear() + '-' +
+			// 	(bulan < 10 ? '0' : '') + bulan + '-' +
+			// 	(hari < 10 ? '0' : '') + hari;
+			// 	jQuery('#tanggalkeluar').val(output1);
+			// })
+
+			// if OnSelect('#3bulan') = jQuery('#tanggalkeluar').setTime(.getTime() + (62 * 24 * 60 * 60 * 1000));
 			jQuery('#tanggalkeluar').val(output);
 
 		})

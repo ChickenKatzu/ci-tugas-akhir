@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2020 at 04:26 AM
+-- Generation Time: Nov 15, 2020 at 08:42 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -30,35 +30,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `booking` (
   `id_booking` int(20) NOT NULL,
-  `id_user` int(20) NOT NULL,
+  `id` int(20) NOT NULL,
   `id_kamar` int(20) NOT NULL,
-  `status` varchar(50) NOT NULL,
+  `status` enum('paid','unpaid') NOT NULL,
   `tanggal_masuk` date NOT NULL,
-  `tanggal_keluar` date NOT NULL
+  `tanggal_keluar` date NOT NULL,
+  `gambar` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`id_booking`, `id_user`, `id_kamar`, `status`, `tanggal_masuk`, `tanggal_keluar`) VALUES
-(1, 7, 5, '', '0000-00-00', '0000-00-00'),
-(2, 8, 5, '', '0000-00-00', '0000-00-00'),
-(3, 9, 5, '', '0000-00-00', '0000-00-00'),
-(4, 10, 6, '', '0000-00-00', '0000-00-00'),
-(5, 11, 7, '', '0000-00-00', '0000-00-00');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `fasilitas`
---
-
-CREATE TABLE `fasilitas` (
-  `id_fasilitas` int(11) NOT NULL,
-  `nama_fasilitas` varchar(30) NOT NULL,
-  `kode_fasilitas` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `booking` (`id_booking`, `id`, `id_kamar`, `status`, `tanggal_masuk`, `tanggal_keluar`, `gambar`) VALUES
+(8, 41, 16, 'unpaid', '2020-11-15', '2022-11-16', ''),
+(9, 41, 17, 'unpaid', '2020-11-15', '2021-01-16', '');
 
 -- --------------------------------------------------------
 
@@ -68,11 +54,11 @@ CREATE TABLE `fasilitas` (
 
 CREATE TABLE `kamar` (
   `id_kamar` int(20) NOT NULL,
-  `nama_kamar` varchar(255) NOT NULL,
+  `nama_kamar` varchar(50) NOT NULL,
   `ukuran_kamar` varchar(20) NOT NULL,
-  `harga_bulanan` varchar(20) NOT NULL,
-  `status` varchar(20) NOT NULL,
-  `gambar` varchar(255) NOT NULL
+  `harga_bulanan` enum('350000') NOT NULL,
+  `status` enum('available','booked') NOT NULL,
+  `gambar` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -80,11 +66,29 @@ CREATE TABLE `kamar` (
 --
 
 INSERT INTO `kamar` (`id_kamar`, `nama_kamar`, `ukuran_kamar`, `harga_bulanan`, `status`, `gambar`) VALUES
-(1, 'Kamar 4', '5m x 5m', '350000', 'Full', ''),
-(5, 'kamar 5', '5m x 5m', '350000', 'Full', ''),
-(6, 'kamar 6', '3m x 3m', '350000', 'Full', ''),
-(7, 'kamar 7', '3m x 3m', '350000', 'Full', ''),
-(8, 'kamar 8', 'Kamar 1008', '59999900', 'Full', '');
+(16, 'kamar 1', '3m x 3m', '350000', 'booked', ''),
+(17, 'kamar 2', '3m x 3m', '350000', 'booked', ''),
+(18, 'kamar 3', '3m x 3m', '350000', 'available', ''),
+(19, 'kamar 4', '3m x 3m', '350000', 'available', ''),
+(20, 'kamar 5', '3m x 3m', '350000', 'available', ''),
+(21, 'kamar 6', '3m x 3m', '350000', 'available', ''),
+(22, 'kamar 7', '3m x 3m', '350000', 'available', ''),
+(23, 'kamar 8', '3m x 3m', '350000', 'available', ''),
+(24, 'kamar 9', '3m x 3m', '350000', 'available', ''),
+(25, 'kamar 10', '3m x 3m', '350000', 'available', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifikasi`
+--
+
+CREATE TABLE `notifikasi` (
+  `notifikasi_id` int(11) NOT NULL,
+  `id_booking` int(11) NOT NULL,
+  `id_kamar` int(11) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -94,33 +98,25 @@ INSERT INTO `kamar` (`id_kamar`, `nama_kamar`, `ukuran_kamar`, `harga_bulanan`, 
 
 CREATE TABLE `user` (
   `id` int(20) NOT NULL,
-  `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `alamat` varchar(50) NOT NULL,
-  `tanggal_lahir` datetime NOT NULL,
-  `no_hp` varchar(50) NOT NULL,
-  `umur` varchar(50) NOT NULL,
-  `pekerjaan` varchar(50) NOT NULL
+  `tanggal_lahir` date NOT NULL,
+  `nohp` varchar(50) NOT NULL,
+  `pekerjaan` varchar(50) NOT NULL,
+  `user_level` enum('admin','owner','user') NOT NULL,
+  `gambar` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `nama`, `alamat`, `tanggal_lahir`, `no_hp`, `umur`, `pekerjaan`) VALUES
-(1, '', '', 'kasdkjas', 'oksaijdasd', 'kasjd', '0000-00-00 00:00:00', 'sakdj', '', ''),
-(2, '', '', 'kasdkjas', 'oksaijdasd', 'kasjd', '0000-00-00 00:00:00', 'sakdj', '', ''),
-(3, '', '', 'aloi.gmzone@gmail.com', 'Aloy', 'Woni', '0000-00-00 00:00:00', '', '', ''),
-(4, '', '', 'akhmadmiftah96@gmail.com', 'Akhmad', 'Danurojo', '0000-00-00 00:00:00', '01238', '17', 'Tukang coding'),
-(5, '', '', '', 'qweqwe', '', '0000-00-00 00:00:00', '', '', ''),
-(6, '', '', '', 'qweqwe', '', '0000-00-00 00:00:00', '', '', ''),
-(7, '', '', '', 'qweqwe', '', '0000-00-00 00:00:00', '', '', ''),
-(8, '', '', '', 'qweqwe', '', '0000-00-00 00:00:00', '', '', ''),
-(9, '', '', '', 'qweqwe', '', '0000-00-00 00:00:00', '', '', ''),
-(10, '', '', '', 'asdw', '', '0000-00-00 00:00:00', '', '', ''),
-(11, '', '', '', 'asdw', '', '0000-00-00 00:00:00', '', '', '');
+INSERT INTO `user` (`id`, `password`, `email`, `nama`, `alamat`, `tanggal_lahir`, `nohp`, `pekerjaan`, `user_level`, `gambar`) VALUES
+(41, 'sawungaja', 'sawung.galing36@gmail.com', 'user', 'user wonogiri', '2020-11-02', '2132132', 'testuser', 'user', ''),
+(42, 'sawung1', 'sawung.galing@gmail.com', 'admin', 'admin wonogiri', '2020-06-09', '32132121', 'mahasiswa', 'admin', ''),
+(43, 'user1', 'user@user.com', 'galih', 'wonogiri', '1998-05-16', '13212315', 'mahasiswa', 'user', '');
 
 --
 -- Indexes for dumped tables
@@ -130,19 +126,24 @@ INSERT INTO `user` (`id`, `username`, `password`, `email`, `nama`, `alamat`, `ta
 -- Indexes for table `booking`
 --
 ALTER TABLE `booking`
-  ADD PRIMARY KEY (`id_booking`);
-
---
--- Indexes for table `fasilitas`
---
-ALTER TABLE `fasilitas`
-  ADD PRIMARY KEY (`id_fasilitas`);
+  ADD PRIMARY KEY (`id_booking`),
+  ADD KEY `id` (`id`,`id_kamar`),
+  ADD KEY `id_kamar` (`id_kamar`);
 
 --
 -- Indexes for table `kamar`
 --
 ALTER TABLE `kamar`
   ADD PRIMARY KEY (`id_kamar`);
+
+--
+-- Indexes for table `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  ADD PRIMARY KEY (`notifikasi_id`),
+  ADD UNIQUE KEY `id_booking` (`id_booking`,`id_kamar`,`id`),
+  ADD KEY `id` (`id`),
+  ADD KEY `id_kamar` (`id_kamar`);
 
 --
 -- Indexes for table `user`
@@ -158,25 +159,38 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id_booking` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `fasilitas`
---
-ALTER TABLE `fasilitas`
-  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_booking` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `kamar`
 --
 ALTER TABLE `kamar`
-  MODIFY `id_kamar` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_kamar` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `booking`
+--
+ALTER TABLE `booking`
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`id_kamar`) REFERENCES `kamar` (`id_kamar`);
+
+--
+-- Constraints for table `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  ADD CONSTRAINT `notifikasi_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `notifikasi_ibfk_2` FOREIGN KEY (`id_kamar`) REFERENCES `kamar` (`id_kamar`),
+  ADD CONSTRAINT `notifikasi_ibfk_3` FOREIGN KEY (`id_booking`) REFERENCES `booking` (`id_booking`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

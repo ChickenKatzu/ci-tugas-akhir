@@ -148,6 +148,15 @@
                   </p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url() ?>adminprofile" class="nav-link">
+                  <i class="nav-icon fa fa-user-circle-o"></i>
+                  <p>
+                    User Profile
+                    <span class="right badge badge-danger">New</span>
+                  </p>
+                </a>
+              </li>
             </ul>
           </nav>
           <!-- /.sidebar-menu -->

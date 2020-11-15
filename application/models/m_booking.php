@@ -14,15 +14,33 @@ class M_booking extends CI_Model{
 		return $this->db->get_where($table,$where);
 	}
 	function tampil_data_join(){
-		$this->db->select('*');
+		$this->db->select('*, b.status as status_booking');
 		$this->db->from('booking b');
 		$this->db->join('user u','u.id = b.id');
 		$this->db->join('kamar k','k.id_kamar = b.id_kamar');
 		$this->db->order_by('b.id_booking', 'asc');
 		$query=$this->db->get();
+
 		// echo json_encode($query->result());
 		// echo $query->num_rows();
+		// echo print_r($query->result());die();
 		return $query->result();
+	}
+	public function tampil_data_join_booking()
+	{
+		$sql="SELECT b.*,k.*,u.*
+		FROM booking b
+		INNER JOIN kamar k on k.id_kamar = b.id_kamar
+		INNER JOIN user u on u.id = b.id";
+		
+		$query = $this->db->query($sql);
+		if ($query->num_rows() > 0) {
+			$result = $query->row();
+			$query->free_result();
+			return $result;
+		} else {
+			return array();
+		}
 	}
 	function input_data($data, $table)
 	{
@@ -33,4 +51,46 @@ class M_booking extends CI_Model{
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
+	public function tampildatajoininbox($id)
+	{
+		$sql="SELECT u.*,b.*
+		FROM booking b
+		JOIN user u on u.id = b.id
+		JOIN kamar k on k.id_kamar = b.id_kamar
+		WHERE u.id = ? ";
+		$query=$this->db->query($sql,$id)->row();
+		return $query->array()->num_rows();
+	}
+	function tampil_data_join_inbox($id) 
+	{
+		$sql = "SELECT b.*,u.*,k.* ,b.status as status_booking
+		FROM booking b 
+		JOIN user u ON u.id = b.id
+		JOIN kamar k ON k.id_kamar = b.id_kamar
+		WHERE u.id = ?";
+		$query = $this->db->query($sql, $id);
+		if ($query->num_rows() > 0) {
+			$result = $query->row();
+			$query->free_result();
+			return $result;
+		} else {
+			return array();
+		}
+	}
+	public function userprofile($id)
+	{
+		return $this->db->get_where('user',['id' => $id])->row();
+	}
+	// function tampil_data_join_inbox($id){
+	// 	$this->db->select('*, b.status as status_booking, b.id as id_booking,u.id as user_id');
+	// 	$this->db->from('booking b');
+	// 	$this->db->join('user u','u.id = b.id');
+	// 	$this->db->join('kamar k','k.id_kamar = b.id_kamar');
+	// 	$this->db->order_by('b.id_booking', 'asc');
+	// 	$query=$this->db->get_where(['u.id' => $id])->row();
+	// 	echo json_encode($query->result());
+	// 	echo $query->num_rows();
+	// 	echo print_r($query->result());die();
+	// 	return $query->result();
+	// }
 }

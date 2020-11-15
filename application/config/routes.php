@@ -49,20 +49,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'userController/home';
 $route['info_kamar'] = 'kamarController/info_kamar';
+$route['user'] = 'kamarController/user';
+$route['admin'] = 'kamarController/Admin';
+$route['dashboarduser'] = 'kamarController/user';
+$route['userinbox'] = 'kamarController/user_inbox';
 $route['payment'] = 'bookingcontroller/payment';
+$route['paymentuser'] = 'bookingcontroller/payment_user';
 $route['viewpayment'] = 'bookingcontroller/konfirmasi_payment';
+$route['pesankamar'] = 'bookingcontroller/pesankamar';
 $route['tambah_kamar'] = 'kamarController/tambah_kamar';
+$route['default_controller'] = 'userController/home';
 $route['register'] = 'userController/register';
 $route['login'] = 'userController/login';
 $route['logout'] = 'userController/logout';
 $route['getlogin'] = 'userController/getlogin';
-$route['pesankamar'] = 'bookingcontroller/pesankamar';
-$route['user'] = 'kamarController/user';
+$route['userprofile'] = 'userController/user_profile';
+$route['adminprofile'] = 'userController/admin_profile';
 $route['home'] = 'userController/home';
-$route['dashboarduser'] = 'kamarController/user';
-$route['admin'] = 'kamarController/Admin';
 $route['users'] = 'userController/user_management';
 $route['404_override'] = 'userController/error';
 $route['translate_uri_dashes'] = FALSE;

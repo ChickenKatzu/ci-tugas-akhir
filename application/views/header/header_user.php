@@ -11,6 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- load bootsnip profile user -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/bootsnip.bootstrap.profileuser.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- icon bootstrap 4 -->
@@ -98,7 +100,7 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="<?php echo base_url() ?>DashboardUser" class="nav-link">
+              <a href="<?php echo base_url() ?>user" class="nav-link">
                 <i class="nav-icon fa fa-dashboard"></i>
                 <p>
                   Dashboard
@@ -107,7 +109,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?php echo base_url() ?>userinbox" class="nav-link">
                 <i class="nav-icon fa fa-envelope"></i>
                 <p>
                   Inbox
@@ -116,8 +118,8 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-user"></i>
+              <a href="<?php echo base_url() ?>userprofile" class="nav-link">
+                <i class="nav-icon fa fa-user-circle-o"></i>
                 <p>
                   User Profile
                   <span class="right badge badge-danger">New</span>

@@ -32,7 +32,7 @@ Class  adalah Controller || SESUAIKAN DOKUMEN ||
 	dashboard_user()
 	dashboard_admin()
 	dashboard_owner()
-	payment()
+	payment() NOT DONE!
 	info kamar()
 	//fungsi tambah, tambahkan enum status available/booked	DONE
 					 tambahkan enum ukuran kaman DONE
@@ -43,7 +43,7 @@ Class  adalah Controller || SESUAIKAN DOKUMEN ||
 	transaksi()
 
 NB:
-Info kamar pindah kamarcontroller
+Info kamar pindah kamarcontroller DONE!
 
 
 ERD

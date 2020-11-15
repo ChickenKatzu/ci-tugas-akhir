@@ -16,15 +16,11 @@
         </div>
         <div class="form-group col-md-6">
           <label for="hargabulanan">Tanggal Lahir</label>
-          <input type="text" class="form-control" name="tanggallahir" placeholder="Tanggal lahir">
+          <input type="date" class="form-control" name="tanggallahir" placeholder="Tanggal lahir">
         </div>
         <div class="form-group col-md-6">
           <label for="hargabulanan">No Hp</label>
           <input type="text" class="form-control" name="nohp" placeholder="Nomor Handphone">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="hargabulanan">Umur</label>
-          <input type="text" class="form-control" name="umur" placeholder="Umur">
         </div>
         <div class="form-group col-md-6">
           <label for="hargabulanan">pekerjaan</label>

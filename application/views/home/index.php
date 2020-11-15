@@ -70,6 +70,8 @@
   <div class="container col-lg-11 col-lg-12 col-lg-10 col-lg-9 col-lg-8 col-sm-11 col-md-10 col-md-9 col-md-8 col-md-7 col-md-6 col-md-5 col-xs-2 mx-auto">
     <div class="card-deck" >
       <?php foreach ($kamar as $k){ ?>
+        
+
         <div class="card">
           <img src="<?php echo base_url() ?>assets/img/gambar6.jpg" class="card-img-top" alt="...">
           <div class="card-body">
@@ -86,8 +88,8 @@
               <button class="btn btn-primary">Booking</button></a>
             </div>
           </div>
-          
-        <?php } ?>
+
+        <?php }?>
       </div>
     </div>
   </section>

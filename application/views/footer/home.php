@@ -107,6 +107,8 @@ function showDivs(n) {
 <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
 <!-- slick slider-->
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- slick slider -->
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/slick.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/css/slick/slick/slick.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

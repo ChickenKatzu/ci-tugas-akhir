@@ -44,6 +44,18 @@ class M_user extends CI_Model{
 			return 'data not entry';
 		}
 	}
+	// function userprofile($where, $table)
+	// {
+	// 	return $this->db->get_where($table,$where);
+	// }
+	// public function userprofile($idprofile)
+	// {
+	// 	return $this->db->get_where('user',['id' => $idprofile])->row();
+	// }
+	public function userprofile($id)
+	{
+		return $this->db->get_where('user',['id' => $id])->row();
+	}
 	// function tampil_data_join(){
 	// 	$this->db->select('id_kamar','nama_kamar','ukuran_kamar','harga_kamar','nama');
 	// 	$this->db->from('kamar');

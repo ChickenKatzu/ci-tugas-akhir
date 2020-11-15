@@ -9,6 +9,7 @@ class BookingController extends CI_Controller {
 		$this->load->model('m_user');
 		$this->load->helper('form','url');
 		$this->load->library('pagination');
+		$this->load->library('form_validation');
 	}
 
 	public function index()
@@ -21,11 +22,17 @@ class BookingController extends CI_Controller {
 	public function pesankamar()
 	{
 		// $this->load->view("header/header_booking");
-		$this->load->view("header/header");
-		$data['kamar'] =$this->m_kamar->tampil_data()->result();
-		// echo json_encode($data['kamar']);
-		$this->load->view('booking/form_booking', $data);
-		$this->load->view("footer/footer");
+		$id=$this->session->id;
+		$data['kamar'] =$this->m_kamar->tampil_data($id)->result();
+		if ($this->session->userdata('level') == 'user')
+		{
+			$this->load->view("header/header");
+			// echo json_encode($data['kamar']);
+			$this->load->view('booking/form_booking', $data);
+			$this->load->view("footer/footer");
+		}else{
+			redirect ('login');
+		}
 	}
 	public function order()
 	{
@@ -48,15 +55,14 @@ class BookingController extends CI_Controller {
 		// );
 		// $this->m_user->input_data($data_user,'user');
 		// ngambil id user
-		$sess_data = $this->session->userdata('session_user');
+		// $sess_data = $this->session->userdata('session_user');
 
-		$id_user = $sess_data['id'];
+		$id_user = $this->session->id;
 		
 		// Update status kamar
 		$idkamar = $this->input->post('idkamar');
 		// $status = $this->input->post('status');
 		$data_kamar = array(
-			
 			'status' => 'booked'
 		);
 		$where = array(
@@ -80,27 +86,59 @@ class BookingController extends CI_Controller {
 
 		// echo json_encode($booking);
 		$test1=$this->m_booking->input_data($booking,'booking');
-		return redirect('home');
+		$this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">
+			Booking berhasil! Silahkan Konfirmasi pembayaran di inbox!
+			</div>');
+		return redirect('user');
 		// $out = array_values($test1);
 		// json_encode($out);
 	}
 	public function payment()
 	{
-		$this->load->view("header/header_admin");
-
 		$data['booking']=$this->m_booking->tampil_data_join();
-		// echo json_encode($data['booking']);
-		$this->load->view("booking/payment",$data);
-		$this->load->view("footer/ft_footer");
+			// echo json_encode($data['booking']);
+		if($this->session->userdata('level') == 'admin')
+		{
+			$this->load->view("header/header_admin");
+			$this->load->view("booking/payment",$data);
+			$this->load->view("footer/ft_footer");
+		}else{
+			redirect('login');
+		}
 	}
-	public function konfirmasi_payment()
+	public function konfirmasi_payment($id_kamar)
 	{
-		$this->load->view("header/header_admin");
-
-		$data['booking']=$this->m_booking->tampil_data_join();
+		// $where=array('id_kamar'=>$id_kamar);
+		$data['booking']=$this->m_booking->tampil_data_join_booking();
+		// echo json_encode($data['booking']);die();
+		if($this->session->userdata('level') == 'admin')
+		{
 		// echo json_encode($data['booking']);
-		$this->load->view("booking/payment_konfirm",$data);
-		$this->load->view("footer/ft_footer");
+			$this->load->view("header/header_admin");
+			$this->load->view("booking/payment_konfirm",$data);
+			$this->load->view("footer/ft_footer");
+		}else{
+			redirect('login');
+		}
+	}
+	public function hapus_payment($id)
+	{
+		$where = array('id_booking' => $id);
+		$this->m_booking->hapus_data($where,'booking');
+		redirect('users');
+	}
+	public function payment_user()
+	{
+		$id=$this->session->id;
+		$data['user']=$this->m_booking->tampil_data_join_inbox($id);
+		if ($this->session->userdata('level') == 'user')
+		{
+			$this->load->view('header/header_user');
+			$this->load->view('user/payment_user',$data);
+			$this->load->view('footer/ft_footer');
+		}else{
+			redirect('login');
+		}
 	}
 	// public function edit($id)
 	// {

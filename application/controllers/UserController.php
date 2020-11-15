@@ -43,15 +43,7 @@ class UserController extends CI_Controller
 	{
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
-
-		// echo $email;
-		// echo $password;
-
 		$cek = $this->m_user->cek($email, $password);
-
-		// $error = $this->db->error($cek);
-		echo json_encode($cek->result());
-		echo $cek->num_rows();
 		if($cek->num_rows() == 1)
 		{
 			foreach($cek->result() as $data){
@@ -60,17 +52,23 @@ class UserController extends CI_Controller
 				$sess_data['level'] = $data->user_level;
 				
 			}
-			$this->session->set_userdata('session_user', $sess_data);
-			if($sess_data['level'] == 'owner' ) 
+			$this->session->set_userdata($sess_data);
+			// $this->session->set_userdata('session_user',$sess_data);
+			// $this->session->set_userdata('level', $sess_data['level']);
+			// if($sess_data['level'] == 'owner' )
+			if($this->session->userdata('level') == 'owner')
 			{
 				// $idUser = $this->session->set_userdata('idUser', $idUser);
+				$idUser = $this->session->id;
 				redirect('owner');
 			}
-			elseif($sess_data['level'] == 'user')
+			// elseif($sess_data['level'] == 'user')
+			elseif($this->session->userdata('level') == 'user')
 			{
 				redirect('user');
 			}
-			elseif($sess_data['level'] == 'admin')
+			// elseif($sess_data['level'] == 'admin')
+			elseif($this->session->userdata('level') == 'admin')
 			{
 				redirect('admin');
 			}
@@ -80,7 +78,7 @@ class UserController extends CI_Controller
 			$this->session->set_flashdata('pesan', 'Maaf, kombinasi username dengan password salah.');
 			// var_dump($this->session->flashdata('pesan'));
 			// echo json_encode($cek);
-			// redirect('login');
+			redirect('login');
 		}
 	}
 	public function logout()
@@ -184,9 +182,9 @@ class UserController extends CI_Controller
 	}
 	public function tambah()
 	{
-		$this->load->view("header/header");
+		$this->load->view("header/header_admin");
 		$this->load->view('user/tambah_user');
-		$this->load->view("footer/footer");
+		$this->load->view("footer/ft_footer");
 	}
 	public function aksi_tambah()
 	{
@@ -196,7 +194,6 @@ class UserController extends CI_Controller
 		$level=$this->input->post('user_level');
 		$tanggallahir=$this->input->post('tanggallahir');
 		$nohp=$this->input->post('nohp');
-		$umur=$this->input->post('umur');
 		$pekerjaan=$this->input->post('pekerjaan');
 		$data=array(
 			'nama'=> $nama,
@@ -204,18 +201,17 @@ class UserController extends CI_Controller
 			'alamat'=> $alamat,
 			'tanggal_lahir'=> $tanggallahir,
 			'nohp'=> $nohp,
-			'umur'=> $umur,
 			'pekerjaan'=> $pekerjaan,
 			'user_level'=> $level
 		);
 		$this->m_user->input_data($data,'user');
-		redirect('UserController');
+		redirect('users');
 	}
 	public function edit($id)
 	{
-		$this->load->view("header/header_admin");
 		$where=array('id'=>$id);
 		$data['user']=$this->m_user->edit_data($where,'user')->result();
+		$this->load->view("header/header_admin");
 		$this->load->view('user/edit_user',$data);
 		$this->load->view("footer/ft_footer");
 	}
@@ -231,7 +227,7 @@ class UserController extends CI_Controller
 		$nama = $this->input->post('nama');
 		$email = $this->input->post('email');
 		$alamat = $this->input->post('alamat');
-		$tanggal = $this->input->post('tanggal_lahir');
+		$tanggal = $this->input->post('tanggal');
 		$nohp = $this->input->post('nohp');
 		$pekerjaan = $this->input->post('pekerjaan');
 		
@@ -255,5 +251,53 @@ class UserController extends CI_Controller
 		// echo json_encode($TestUser -> $result());
 		// $out = array_values($TestUser);
 		// json_encode($out);
+	}
+	public function user_profile()
+	{
+		// $where=array('id'=>$id);
+		// $data['user']=$this->m_user->edit_data($where,'user')->result();
+		$id = $this->session->id;
+		$data['user'] = $this->m_user->userprofile($id);
+		// echo json_encode($data);die();
+		if ($this->session->userdata('level') == 'user')
+		{
+			$this->load->view("header/header_user");
+			$this->load->view('dashboard/profile_user',$data);
+			$this->load->view("footer/ft_footer");
+		}else{
+			redirect('login');
+		}
+	}
+	public function admin_profile()
+	{
+		// $where=array('id'=>$id);
+		// $data['user']=$this->m_user->edit_data($where,'user')->result();
+		$id = $this->session->id;
+		$data['user'] = $this->m_user->userprofile($id);
+		// echo json_encode($data);die();
+		if ($this->session->userdata('level') == 'admin')
+		{
+			$this->load->view("header/header_admin");
+			$this->load->view('dashboard/profile_user',$data);
+			$this->load->view("footer/ft_footer");
+		}else{
+			redirect('login');
+		}
+	}
+	public function owner_profile()
+	{
+		// $where=array('id'=>$id);
+		// $data['user']=$this->m_user->edit_data($where,'user')->result();
+		$id = $this->session->id;
+		$data['user'] = $this->m_user->userprofile($id);
+		// echo json_encode($data);die();
+		if ($this->session->userdata('level') == 'admin')
+		{
+			$this->load->view("header/header_admin");
+			$this->load->view('dashboard/profile_user',$data);
+			$this->load->view("footer/ft_footer");
+		}else{
+			redirect('login');
+		}
 	}
 }

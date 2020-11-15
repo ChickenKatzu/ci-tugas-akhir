@@ -17,6 +17,7 @@
       <th>Alamat</th>
       <th>Nomor Handphone</th>
       <th>Level</th>
+      <th>status</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -34,9 +35,10 @@
         <td><?php echo $b->alamat ?></td>
         <td><?php echo $b->nohp ?></td>
         <td><?php echo $b->user_level ?></td>
+        <td><?php echo $b->status_booking ?></td>
 
         <td>
-          <a class="btn btn-primary" href="<?php echo base_url() ?>viewpayment">
+          <a class="btn btn-primary" href="<?php echo base_url('bookingcontroller/konfirmasi_payment/'.$b->id_kamar) ?>">
             <i class="fa fa-eye"></i>
           </a>
           <a class="btn btn-success" href="<?php echo base_url() ?>konfirmasi">

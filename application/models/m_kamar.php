@@ -13,11 +13,11 @@ class M_kamar extends CI_Model{
 	{
 		return $this->db->get_where($table,$where);
 	}
-	function tampil_data_join(){
+	function tampil_data_join($id){
 		$this->db->select('*');
 		$this->db->from('kamar');
 		$this->db->join('user');
-		$query=$this->db->get();
+		$query=$this->db->get_where('user',['id'=>$id]);
 	}
 	function input_data($data, $table)
 	{

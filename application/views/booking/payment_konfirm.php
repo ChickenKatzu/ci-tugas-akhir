@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container-fluid">
 
-    <form action="<?php echo base_url().'bookingcontroller/update_konifirmasi_payment'; ?>" method="post">
+    <form action="<?php echo base_url().'bookingcontroller/update_konifirmasi_payment'; ?>" method="post" enctype="multipart/form-data">
       <div class="form-row">
         <div class="form-group col-md-6">
           <input type="hidden" name="id" value="<?php echo $booking->id_booking?>">
@@ -44,7 +44,7 @@
         <div class="form-group">
           <div class="col-md-6">
             <label for="fotopembayaran">Foto Pembayaran</label>
-            <img id="myImg" src="<?php echo base_url() ?>assets/img/gambar2.jpg" style="width:100%;max-width:300px">
+            <img id="myImg" style="width:100%;max-width:300px" src="<?php echo base_url('gambar/'.$booking->gambar_user) ?>">
 
             <!-- The Modal -->
             <div id="myModal" class="modal form-control">

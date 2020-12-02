@@ -10,6 +10,7 @@ class BookingController extends CI_Controller {
 		$this->load->helper('form','url');
 		$this->load->library('pagination');
 		$this->load->library('form_validation');
+		$this->load->helper(array('form','url'));
 	}
 	// ADMIN PAGE
 	public function index()
@@ -24,10 +25,10 @@ class BookingController extends CI_Controller {
 		// $this->load->view("header/header_booking");
 		$id=$this->session->id;
 		$data['kamar'] =$this->m_kamar->tampil_data($id)->result();
+		$data1['title'] = 'Pesan Kamar | Dashboard';
 		if ($this->session->userdata('level') == 'user')
 		{
-			$this->load->view("header/header");
-			// echo json_encode($data['kamar']);
+			$this->load->view("header/header",$data1);
 			$this->load->view('booking/form_booking', $data);
 			$this->load->view("footer/footer");
 		}else{
@@ -170,6 +171,34 @@ class BookingController extends CI_Controller {
 		}
 	}
 
+	public function upload()
+	{
+		$config ['upload_path']='./gambar/';
+		$config ['allowed_types']='|jpg|png|jpeg';
+		$config ['file_name']='gambar';
+		$config ['max_size']=2000;
+		$config ['max_width']=1920;
+		$config ['max_height']=1200;
+		$this->load->library('upload',$config);
+		if ($this->upload->do_upload('gambar'))
+		{
+			return $data=$this->upload->data("file_name");
+		}
+	}
+
+	public function upload_gambar()
+	{
+		$id=$this->input->post('id');
+		$gambar=$this->upload();
+		$data=array(
+			'gambar'=>$gambar
+		);
+		$where=array(
+			'id' => $id
+		);
+		$data1['user']=$this->m_user->update_data($where,$data,'user');
+		redirect('userinbox');
+	}
 
 	// OWNER SECTIONS!
 	public function owner_payment()

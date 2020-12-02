@@ -31,7 +31,7 @@ class M_booking extends CI_Model{
 	{
 
 		// echo json_encode($id_booking);
-		$sql="SELECT b.*,k.*,u.*,b.status as status_payment
+		$sql="SELECT b.*,k.*,u.*,b.status as status_payment,u.gambar as gambar_user
 		FROM booking b
 		INNER JOIN kamar k on k.id_kamar = b.id_kamar
 		INNER JOIN user u on u.id = b.id

@@ -1,9 +1,9 @@
 <div class="container">
   <div class="container-fluid">
-   <form action="<?php //echo base_url().'usercontroller/update'; ?>" method="post">
+   <form action="<?php echo base_url().'bookingcontroller/upload_gambar'; ?>" method="post" enctype="multipart/form-data">
     <div class="form-row">
       <div class="form-group col-md-6">
-
+         <input type="hidden" name="id" value="<?php echo $user->id?>">
         <label for="ukurankamar">Nama</label>
         <input type="text" class="form-control" name="nama" placeholder="Nama" value="<?php echo $user->nama ?>"readonly>
       </div>
@@ -40,13 +40,10 @@
         <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan" value="<?php echo $user->pekerjaan ?>"readonly>
       </div>
       <div class="form-group">
-        <div class="col-md-6">
-          <img class="img-fluid img-thumbnail" src="<?php echo base_url() ?>assets/img/gambar1.jpg">
-        </div>
-      </div>    
+        <label for="uploadGambar">Gambar/Foto</label>
+        <input type="file" class="form-control-file" name="gambar" value="<?php echo $user->gambar ?>">
+      </div> 
     </div>
-
-
 
     <a href="">
       <button type="submit" class="btn btn-primary">Konfirmasi</button>

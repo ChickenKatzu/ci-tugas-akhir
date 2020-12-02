@@ -9,6 +9,7 @@ class M_booking extends CI_Model{
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
+
 	function edit_data($where, $table)
 	{
 		return $this->db->get_where($table,$where);
@@ -26,14 +27,16 @@ class M_booking extends CI_Model{
 		// echo print_r($query->result());die();
 		return $query->result();
 	}
-	public function tampil_data_join_booking()
+	public function tampil_data_join_booking($id_booking)
 	{
-		$sql="SELECT b.*,k.*,u.*
+
+		// echo json_encode($id_booking);
+		$sql="SELECT b.*,k.*,u.*,b.status as status_payment
 		FROM booking b
 		INNER JOIN kamar k on k.id_kamar = b.id_kamar
-		INNER JOIN user u on u.id = b.id";
-		
-		$query = $this->db->query($sql);
+		INNER JOIN user u on u.id = b.id
+		WHERE b.id_booking = ? ";
+		$query = $this->db->query($sql,$id_booking);
 		if ($query->num_rows() > 0) {
 			$result = $query->row();
 			$query->free_result();
@@ -70,13 +73,81 @@ class M_booking extends CI_Model{
 		WHERE u.id = ?";
 		$query = $this->db->query($sql, $id);
 		if ($query->num_rows() > 0) {
+			$result = $query->result();
+			// $query->free_result();
+			return $result;
+		} else {
+			return array();
+		}
+	}
+	function tampil_data_join_inbox_detail($where) 
+	{
+
+		// echo json_encode($where);
+		$sql = "SELECT b.*,u.*,k.* ,b.status as status_booking
+		FROM booking b 
+		JOIN user u ON u.id = b.id
+		JOIN kamar k ON k.id_kamar = b.id_kamar
+		WHERE b.id_booking = ?";
+		$query = $this->db->query($sql, $where);
+		if ($query->num_rows() > 0) {
 			$result = $query->row();
 			$query->free_result();
 			return $result;
 		} else {
 			return array();
 		}
+	}	
+	// function hapus_data_join_payment($id) 
+	// {
+	// 	$sql = "SELECT b.*,u.*,k.* ,b.status as status_booking
+	// 	FROM booking b 
+	// 	JOIN user u ON u.id = b.id
+	// 	JOIN kamar k ON k.id_kamar = b.id_kamar
+	// 	WHERE u.id = ?";
+	// 	$query = $this->db->query($sql, $id);
+	// 	if ($query->num_rows() > 0) {
+	// 		$result = $query->result();
+	// 		// $query->free_result();
+	// 		return $result;
+	// 	} else {
+	// 		return array();
+	// 	}
+	// }
+
+	function hapus_data_join_payment($where)
+	{
+		// echo json_encode($where['id_booking']);
+		$sql = "SELECT *
+		FROM booking 
+		WHERE id_booking = ?";
+		$query = $this->db->query($sql, $where['id_booking']);
+		$data = $query->row_array();
+		// echo json_encode($id_kamar);
+		echo json_encode($data['id_kamar']);
+		// var_dump($data);
+
+		$this->db->where('id_booking', $where['id_booking']);
+		$this->db->delete('booking');
+		if ($this->db->affected_rows() > 0) {
+			$this->db->set('status', $where['status_booking']);
+			$this->db->where('id_kamar',$data['id_kamar']);
+			$this->db->update('kamar');	
+			if ($this->db->affected_rows() > 0) {
+				return true;
+			}else{
+				return false;
+			}
+		}
+
 	}
+
+	function update_data_payment($where,$data,$table)
+	{
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
+
 	public function userprofile($id)
 	{
 		return $this->db->get_where('user',['id' => $id])->row();

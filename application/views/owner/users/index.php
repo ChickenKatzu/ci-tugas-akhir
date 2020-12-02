@@ -3,9 +3,6 @@
 <!-- Main content -->
 <section class="content">
  <div class="wrapper">
-   <a href="<?php echo base_url('usercontroller/tambah') ?>">
-    <button type="submit" class="btn btn-primary btn-lg mx-right">Tambah User</button>
-  </a>
   <div class="box-body table-responsive table-hover">
    <table class="table table-hover table-striped">
     <thead class="thead-dark">
@@ -41,15 +38,12 @@
       <td><?php echo $k->pekerjaan ?></td>
       <td><?php echo $k->user_level ?></td>
       <td>
-        <a class="btn btn-warning" href="<?php echo base_url('usercontroller/edit/'.$k->id) ?>">
-          <i class="fa fa-edit"></i>
+        <a class="btn btn-primary" href="<?php echo base_url('usercontroller/view_users/'.$k->id) ?>">
+          <i class="fa fa-eye"></i>
         </a>
-        <a class="btn btn-danger" href="<?php echo base_url('usercontroller/hapus/'.$k->id) ?>">
-         <i class="fa fa-trash-o"></i>
-       </a>
-     </td>
-   </tr>
- <?php } ?>
+      </td>
+    </tr>
+  <?php } ?>
 </table>
 </div>
 </div>

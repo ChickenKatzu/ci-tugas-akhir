@@ -9,6 +9,18 @@ class M_kamar extends CI_Model{
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
+	// function edit_data($where)
+	// {
+	// 	$sql="SELECT * from kamar where id_kamar = ? ";
+	// 	$query=$this->db->query($sql,$where);
+	// 	if ($query->num_rows() > 0) {
+	// 		$result=$query->row();
+	// 		return $result->result();
+	// 	}else{
+	// 		return array();
+	// 	}
+	// 	// return $query->result();
+	// }
 	function edit_data($where, $table)
 	{
 		return $this->db->get_where($table,$where);

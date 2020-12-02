@@ -10,10 +10,10 @@
       </hgroup>
       
       <hr>
-      <form action="<?php echo base_url('bookingcontroller/order') ?>" target="_blank" method="post">
+      <form action="<?php echo base_url('bookingcontroller/order') ?>" method="post">
        <p><label><i class="fa fa-calendar-check-o"></i> Check In</label></p>
        <label for="idkamar">Nomor Kamar</label>
-       <select class="form-control" name="idkamar">
+       <select class="form-control" name="idkamar" required>
         <option value="">-</option>
 
 
@@ -31,9 +31,9 @@
 
       <div class="form-group">
         <div class="input-group-addon"><b>Rentang :</b></div>
-        <input id="rentang" type="number" name="" class='form-control' max="12" min="0">
+        <input id="rentang" type="number" name="" class='form-control' max="12" min="1" required>
 
-        <select id="waktu" class="form-control" disabled>
+        <select id="waktu" class="form-control" required="" >
           <option value="-">-</option>
           <option value="tahun">Tahun</option>
           <option value="bulan">Bulan</option>
@@ -43,19 +43,18 @@
         <label for="tanggal_keluar">Tanggal keluar</label>
         <input type="date" class="form-control" id="tanggalkeluar" name="tanggal_keluar" placeholder="Tanggal keluar" readonly>
       </div>
-    </div>
-    
+
       <button type="submit" class="w3-button w3-block w3-blue w3-center-align">Submit</button>
-      
-    
-   
+
+
+
       <a href="<?php echo base_url() ?>home">
         <button type="button" class="w3-button w3-block w3-default w3-center-align">Cancel</button>
       </a>
-    
-    <br>
-  </form>
-</div>
+
+      <br>
+    </form>
+  </div>
 </nav>
 
 <!-- Top menu on small screens -->
@@ -236,6 +235,5 @@ function showDivs(n) {
   </script>
 
 </body>
-</html>
 
 

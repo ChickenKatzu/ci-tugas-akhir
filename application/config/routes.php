@@ -49,24 +49,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['info_kamar'] = 'kamarController/info_kamar';
+// Kamar Controller!!
 $route['user'] = 'kamarController/user';
+$route['owner'] = 'kamarController/owner';
 $route['admin'] = 'kamarController/Admin';
+$route['info_kamar'] = 'kamarController/info_kamar';
+$route['info_kamar_owner'] = 'kamarController/info_kamar_owner';
 $route['dashboarduser'] = 'kamarController/user';
 $route['userinbox'] = 'kamarController/user_inbox';
+$route['tambah_kamar'] = 'kamarController/tambah_kamar';
+// Booking Controller!!
 $route['payment'] = 'bookingcontroller/payment';
+$route['owner_payments'] = 'bookingcontroller/owner_payment';
 $route['paymentuser'] = 'bookingcontroller/payment_user';
 $route['viewpayment'] = 'bookingcontroller/konfirmasi_payment';
 $route['pesankamar'] = 'bookingcontroller/pesankamar';
-$route['tambah_kamar'] = 'kamarController/tambah_kamar';
-$route['default_controller'] = 'userController/home';
+// User Controller!!
 $route['register'] = 'userController/register';
 $route['login'] = 'userController/login';
 $route['logout'] = 'userController/logout';
 $route['getlogin'] = 'userController/getlogin';
 $route['userprofile'] = 'userController/user_profile';
 $route['adminprofile'] = 'userController/admin_profile';
+$route['ownerprofile'] = 'userController/owner_profile';
 $route['home'] = 'userController/home';
 $route['users'] = 'userController/user_management';
+$route['owner_users'] = 'userController/user_management_owner';
+$route['default_controller'] = 'userController/home';
 $route['404_override'] = 'userController/error';
 $route['translate_uri_dashes'] = FALSE;

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Kos | Dashboard</title>
+  <title><?php echo $title ?></title>
   <!-- icon favicon -->
   <link rel="icon" href="<?php echo base_url(); ?>assets/img/favicon1.png" type="image/png">
   <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/favicon1.png" type="image/x-icon">
@@ -65,91 +65,93 @@
       </ul>
       <div class="dropdown">
         <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          User
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="<?php echo base_url() ?>logout">Logout</a>
-          <a class="dropdown-item" href="<?php echo base_url() ?>userprofile">User Profile</a>
-        </div>
-      </div>
-    </nav>
-    <!-- /.navbar -->
+          
+         <?php echo $user->nama ?>
 
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Brand Logo -->
-      <a href="#" class="brand-link">
-        <img src="<?php echo base_url() ?>assets/dist/img/avatar.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-        style="opacity: .8">
-        <span class="brand-text font-weight-light bg-warni font-color-warning">R-Cell Kos Bakungan</span>
-      </a>
-
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <img src="<?php echo base_url() ?>assets/dist/img/avatar.png" class="img-circle elevation-2" alt="User Image">
-          </div>
-          <div class="info">
-            <a href="#" class="d-block">Admin</a>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="<?php echo base_url() ?>logout">Logout</a>
+            <a class="dropdown-item" href="<?php echo base_url() ?>userprofile">User Profile</a>
           </div>
         </div>
+      </nav>
+      <!-- /.navbar -->
 
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li class="nav-item">
-              <a href="<?php echo base_url() ?>user" class="nav-link">
-                <i class="nav-icon fa fa-dashboard"></i>
-                <p>
-                  Dashboard
-                  <span class="right badge badge-danger">New</span>
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?php echo base_url() ?>userinbox" class="nav-link">
-                <i class="nav-icon fa fa-envelope"></i>
-                <p>
-                  Inbox
-                  <span class="right badge badge-danger">New</span>
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?php echo base_url() ?>userprofile" class="nav-link">
-                <i class="nav-icon fa fa-user-circle-o"></i>
-                <p>
-                  User Profile
-                  <span class="right badge badge-danger">New</span>
-                </p>
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-      </div>
-      <!-- /.sidebar -->
-    </aside>
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Dashboard</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
-              </ol>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content-header -->
+      <!-- Main Sidebar Container -->
+      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-link">
+          <img src="<?php echo base_url() ?>assets/dist/img/avatar.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8">
+          <span class="brand-text font-weight-light bg-warni font-color-warning">R-Cell Kos Bakungan</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+              <img src="<?php echo base_url() ?>assets/dist/img/avatar.png" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+              <a href="#" class="d-block"><?php echo $user->nama ?></a>
+            </div>
+          </div>
+
+          <!-- Sidebar Menu -->
+          <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <li class="nav-item">
+                <a href="<?php echo base_url() ?>user" class="nav-link">
+                  <i class="nav-icon fa fa-dashboard"></i>
+                  <p>
+                    Dashboard
+                    <span class="right badge badge-danger">New</span>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url() ?>userinbox" class="nav-link">
+                  <i class="nav-icon fa fa-envelope"></i>
+                  <p>
+                    Inbox
+                    <span class="right badge badge-danger">New</span>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url() ?>userprofile" class="nav-link">
+                  <i class="nav-icon fa fa-user-circle-o"></i>
+                  <p>
+                    User Profile
+                    <span class="right badge badge-danger">New</span>
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+      </aside>
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Dashboard</h1>
+              </div><!-- /.col -->
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+              </div><!-- /.col -->
+            </div><!-- /.row -->
+          </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
 
 

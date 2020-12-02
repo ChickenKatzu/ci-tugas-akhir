@@ -56,15 +56,8 @@
         </div>
       </div>
 
-
-
-      
-      <button type="submit" class="btn btn-primary float-right">Konfirmasi</button>
-      <a href="<?php echo base_url('bookingcontroller/hapus/'.$booking->id_booking) ?>">
-        <button type="button" class="btn btn-danger">Hapus</button>
-      </a>
-      <a href="<?php echo base_url() ?>payment">
-        <button type="button" class="btn btn-default">Cancel</button>
+      <a href="<?php echo base_url() ?>owner_payments">
+        <button type="button" class="btn btn-primary float-right">Kembali</button>
       </a>
 
     </form>

@@ -7,9 +7,9 @@
 			</button>
 		</div>
 		<div class="breadcrumb text-auto">			
-			<p>Selamat datang, di Halaman Dashboard admin
-				<br>Login Sebagai, <b>nama keterngan login</b> 
-			</p>
-		</div>
-	</div>	
-</section>
+			<p>Selamat datang, di Halaman Dashboard <b><?php echo $user->user_level ?></b>
+				<br>Login Sebagai,<b><?php echo $user->nama ?></b> 
+				</p>
+			</div>
+		</div>	
+	</section>

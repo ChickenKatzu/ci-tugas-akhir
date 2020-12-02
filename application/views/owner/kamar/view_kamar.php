@@ -25,14 +25,11 @@
           <input type="number" name="hargabulanan" class="form-control" id="hargaBulanan" placeholder="Harga Bulanan" value="<?php echo $k->harga_bulanan ?>">
         </div>
       </div>
-      <div class="form-group">
-        <label for="exampleFormControlFile1">Example file input</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      <div class="col text-right">
+        <a href="<?php echo base_url() ?>info_kamar_owner">
+          <button type="button" class="btn btn-primary">Kembali</button>
+        </a>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <a href="<?php echo base_url() ?>info_kamar">
-        <button type="button" class="btn btn-default">Cancel</button>
-      </a>
     </form>
   <?php } ?>
 </div>

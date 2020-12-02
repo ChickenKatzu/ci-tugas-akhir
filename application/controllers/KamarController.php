@@ -17,81 +17,88 @@ class KamarController extends CI_Controller
 	}
 	public function user()
 	{
-		$id=$this->session->id;
-		$data['user']=$this->m_user->userprofile($id);
+		$idsession=$this->session->id;
+		// echo json_encode($id);
+		$data['user']=$this->m_user->tampil_data_user($idsession,'user');
+		// echo json_encode($data['user']);die();
+		$data['title'] = 'User | Dashboard';
 		if($this->session->userdata('level') == 'user')
-		// if($sess_data['level'] == 'user' ) 
-			
 		{
-			$this->load->view('header/header_user');
-			$this->load->view('dashboard/dashboard_user');
+			$this->load->view('header/header_user',$data);
+			$this->load->view('dashboard/dashboard_user',$data);
 			$this->load->view('footer/ft_footer');
 			
 		} else {
-			redirect('login');
-		}
-	}
-
-	public function user_inbox()
-	{
-		$id=$this->session->id;
-		$data['user']=$this->m_booking->tampil_data_join_inbox($id);
-		// echo json_encode($data);die();
-		if($this->session->userdata('level') == 'user')
-		// if($sess_data['level'] == 'user' ) 
-			
-		{
-			$this->load->view('header/header_user');
-			$this->load->view('user/inbox',$data);
-			$this->load->view('footer/ft_footer');
-			
-		} else {
-			redirect('login');
-		}
-	}
-	
-	public function owner()
-	{
-		if($this->session->userdata('level') == 'owner')
-		{
-			$this->load->view('header/header_owner');
-			$this->load->view('dashboard/dashboard_user');
-			$this->load->view('footer/ft_footer');
-		}else{
 			redirect('login');
 		}
 	}
 
 	public function admin()
 	{
+		$idsession=$this->session->id;
+		// echo json_encode($id);
+		$data['user']=$this->m_user->tampil_data_user($idsession,'user');
+		// echo json_encode($data['user']);die();
+		$data['title'] = 'Admin | Dashboard';
 		if($this->session->userdata('level') == 'admin')
 		{
-			$this->load->view('header/header_admin');
-			$this->load->view('dashboard/dashboard_user');
+			$this->load->view('header/header_admin',$data);
+			$this->load->view('dashboard/dashboard_user',$data);
 			$this->load->view('footer/ft_footer');
 		}else{
 			redirect('login');
 		}
 	}
+
+	
+	public function owner()
+	{
+		$idsession=$this->session->id;
+		// echo json_encode($id);
+		$data['user']=$this->m_user->tampil_data_user($idsession,'user');
+		// echo json_encode($data['user']);die();
+		$data['title'] = 'Owner Dashboard';
+		if($this->session->userdata('level') == 'owner')
+		{
+			$this->load->view('header/header_owner',$data);
+			$this->load->view('dashboard/dashboard_user',$data);
+			$this->load->view('footer/ft_footer');
+		}else{
+			redirect('login');
+		}
+	}
+
+
+	
 	public function info_kamar()
 	{
+		$idsession=$this->session->id;
+		// echo json_encode($id);
+		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		// echo json_encode($data['user']);die();
+		$data['kamar']=$this->m_kamar->tampil_data()->result();
+		$data1['title'] = 'View Kamar | Dashboard';
 		if($this->session->userdata('level') == 'admin')
 		{
-			$this->load->view("header/header_admin");
-			$data['kamar']=$this->m_kamar->tampil_data()->result();
+			$this->load->view("header/header_admin",$data1);
 			$this->load->view("info_kamar",$data);
-			$this->load->view("footer/footer");
+			$this->load->view("footer/ft_footer");
 		}else{
 			redirect('login');
 		}
 	}
 	public function tambah_kamar()
 	{
+		$idsession=$this->session->id;
+		// echo json_encode($id);
+		$data['user']=$this->m_user->tampil_data_user($idsession,'user');
+		// echo json_encode($data['user']);die();
+		$data['title'] = 'Tambah Kamar | Dashboard';
 		if($this->session->userdata('level') == 'admin')
 		{
-			$this->load->view("header/header_admin");
+			$this->load->view("header/header_admin",$data);
 			$this->load->view('tambah_kamar');
-			$this->load->view("footer/footer");
+			$this->load->view("footer/ft_footer");
 		}else{
 			redirect('login');
 		}
@@ -113,13 +120,22 @@ class KamarController extends CI_Controller
 	}
 	public function edit($id)
 	{
+		// data untuk view header
+		$idsession=$this->session->id;
+		// echo json_encode($id);
+		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		// echo json_encode($data1['user']);
+		$where=array('id_kamar'=>$id);
+		$data['kamar']=$this->m_kamar->edit_data($where,'kamar')->result();
+		// echo json_encode($where);
+		// echo json_encode($data['kamar']);die();
+		$data1['title'] = 'Edit Kamar| Dashboard';
+
 		if($this->session->userdata('level') == 'admin')
 		{
-			$where=array('id_kamar'=>$id);
-			$data['kamar']=$this->m_kamar->edit_data($where,'kamar')->result();
-			$this->load->view("header/header_admin");
+			$this->load->view("header/header_admin",$data1);
 			$this->load->view('edit_kamar',$data);
-			$this->load->view("footer/footer");
+			$this->load->view("footer/ft_footer");
 		}else{
 			redirect('login');
 		}
@@ -159,5 +175,70 @@ class KamarController extends CI_Controller
 		// echo "dataout", json_encode($data);
 		// echo json_encode($testkamar);
 
+	}
+	public function user_inbox()
+	{
+		// data untuk view header
+		$idsession=$this->session->id;
+		// echo json_encode($id);
+		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		// echo json_encode($data['user']);die();
+		$id=$this->session->id;
+		$data['user']=$this->m_booking->tampil_data_join_inbox($id,'user');
+		// echo json_encode($data);die();
+		$data1['title'] = 'Inbox | Dashboard';
+		if($this->session->userdata('level') == 'user')
+		// if($sess_data['level'] == 'user' ) 
+			
+		{
+			$this->load->view('header/header_user',$data1);
+			$this->load->view('user/inbox',$data);
+			$this->load->view('footer/ft_footer');
+			
+		} else {
+			redirect('login');
+		}
+	}
+
+
+	// OWNER SECTIONs!
+	public function info_kamar_owner()
+	{
+		$idsession=$this->session->id;
+		// echo json_encode($id);
+		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		// echo json_encode($data['user']);die();
+		$data['kamar']=$this->m_kamar->tampil_data()->result();
+		$data1['title'] = 'Info Kamar | Dashboard';
+		if($this->session->userdata('level') == 'owner')
+		{
+			$this->load->view("header/header_owner",$data1);
+			$this->load->view("owner/kamar/index",$data);
+			$this->load->view("footer/ft_footer");
+		}else{
+			redirect('login');
+		}
+	}
+
+	public function view_kamar($id)
+	{
+		// data untuk view header
+		$idsession=$this->session->id;
+		// echo json_encode($id);
+		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		// echo json_encode($data1['user']);
+		$where=array('id_kamar'=>$id);
+		$data['kamar']=$this->m_kamar->edit_data($where,'kamar')->result();
+		// echo json_encode($where);
+		// echo json_encode($data['kamar']);die();
+		$data1['title'] = 'Payment Dashboard';
+		if($this->session->userdata('level') == 'owner')
+		{
+			$this->load->view("header/header_owner",$data1);
+			$this->load->view('owner/kamar/view_kamar',$data);
+			$this->load->view("footer/ft_footer");
+		}else{
+			redirect('login');
+		}
 	}
 }

@@ -6,6 +6,7 @@ class UserController extends CI_Controller
 		parent::__construct();
 		// $this->load->model('m_user_mengement');
 		$this->load->model('m_user');
+		$this->load->model('m_booking');
 		$this->load->model('m_register');
 		$this->load->model('m_kamar');
 		$this->load->helper('form');
@@ -50,6 +51,7 @@ class UserController extends CI_Controller
 				$sess_data['id'] = $data->id;
 				$sess_data['email'] = $data->email;
 				$sess_data['level'] = $data->user_level;
+				$sess_data['nama'] = $data->nama;
 				
 			}
 			$this->session->set_userdata($sess_data);
@@ -135,8 +137,13 @@ class UserController extends CI_Controller
 
 	public function user_management()
 	{
-		$this->load->view("header/header_admin");
+		$id=$this->session->id;
+		// echo json_encode($id);
+		$data['user']=$this->m_user->tampil_data_user($id,'user');
+		// echo json_encode($data['user']);die();
 		$user=$this->m_user->tampil_data()->result();
+		$data['title'] = 'Users Admin | Dashboard';
+		$this->load->view("header/header_admin",$data);
 
 		$dataLength = count($user);
 
@@ -178,11 +185,12 @@ class UserController extends CI_Controller
 		$data['pagination'] = $this->pagination->create_links();
 
 		$this->load->view("user/index",$data);
-		$this->load->view("footer/footer");
+		$this->load->view("footer/ft_footer");
 	}
 	public function tambah()
 	{
-		$this->load->view("header/header_admin");
+		$data['title'] = 'Tambah User | Dashboard';
+		$this->load->view("header/header_admin",$data);
 		$this->load->view('user/tambah_user');
 		$this->load->view("footer/ft_footer");
 	}
@@ -209,9 +217,14 @@ class UserController extends CI_Controller
 	}
 	public function edit($id)
 	{
+		// data untuk view header
+		$idsession=$this->session->id;
+		// echo json_encode($id);
+		$data1['user']=$this->m_user->tampil_data_user($id,'user');
 		$where=array('id'=>$id);
 		$data['user']=$this->m_user->edit_data($where,'user')->result();
-		$this->load->view("header/header_admin");
+		$data1['title'] = 'Edit User | Dashboard';
+		$this->load->view("header/header_admin",$data1);
 		$this->load->view('user/edit_user',$data);
 		$this->load->view("footer/ft_footer");
 	}
@@ -254,14 +267,18 @@ class UserController extends CI_Controller
 	}
 	public function user_profile()
 	{
-		// $where=array('id'=>$id);
-		// $data['user']=$this->m_user->edit_data($where,'user')->result();
-		$id = $this->session->id;
-		$data['user'] = $this->m_user->userprofile($id);
+		// data untuk view header
+		$idsession=$this->session->id;
+		$id=$this->session->id;
+		// echo json_encode($id);
+		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		// echo json_encode($data['user']);die();
+		$data['user']=$this->m_user->userprofile($id);
 		// echo json_encode($data);die();
+		$data1['title'] = 'User Profile | Dashboard';
 		if ($this->session->userdata('level') == 'user')
 		{
-			$this->load->view("header/header_user");
+			$this->load->view("header/header_user",$data1);
 			$this->load->view('dashboard/profile_user',$data);
 			$this->load->view("footer/ft_footer");
 		}else{
@@ -270,14 +287,17 @@ class UserController extends CI_Controller
 	}
 	public function admin_profile()
 	{
-		// $where=array('id'=>$id);
-		// $data['user']=$this->m_user->edit_data($where,'user')->result();
+		$id=$this->session->id;
+		// echo json_encode($id);
+		$data['user']=$this->m_user->tampil_data_user($id,'user');
+		// echo json_encode($data['user']);die();
 		$id = $this->session->id;
 		$data['user'] = $this->m_user->userprofile($id);
 		// echo json_encode($data);die();
+		$data['title'] = 'Admin Profile | Dashboard';
 		if ($this->session->userdata('level') == 'admin')
 		{
-			$this->load->view("header/header_admin");
+			$this->load->view("header/header_admin",$data);
 			$this->load->view('dashboard/profile_user',$data);
 			$this->load->view("footer/ft_footer");
 		}else{
@@ -286,15 +306,90 @@ class UserController extends CI_Controller
 	}
 	public function owner_profile()
 	{
-		// $where=array('id'=>$id);
-		// $data['user']=$this->m_user->edit_data($where,'user')->result();
+		$id=$this->session->id;
+		// echo json_encode($id);
+		$data['user']=$this->m_user->tampil_data_user($id,'user');
+		// echo json_encode($data['user']);die();
 		$id = $this->session->id;
 		$data['user'] = $this->m_user->userprofile($id);
 		// echo json_encode($data);die();
-		if ($this->session->userdata('level') == 'admin')
+		$data['title'] = 'Owner Profile | Dashboard';
+		if ($this->session->userdata('level') == 'owner')
 		{
-			$this->load->view("header/header_admin");
+			$this->load->view("header/header_owner",$data);
 			$this->load->view('dashboard/profile_user',$data);
+			$this->load->view("footer/ft_footer");
+		}else{
+			redirect('login');
+		}
+	}
+
+	// OWNER SECTIONS!!
+	public function user_management_owner()
+	{
+		$id=$this->session->id;
+		// echo json_encode($id);
+		$data['user']=$this->m_user->tampil_data_user($id,'user');
+		// echo json_encode($data['user']);die();
+		$user=$this->m_user->tampil_data()->result();
+		$data['title'] = 'Users Owner | Dashboard';
+		$this->load->view("header/header_owner",$data);
+
+		$dataLength = count($user);
+
+		$config = array();
+		$config['base_url'] = base_url().'UserController/user_management/'.$this->uri->segment(4); //site url
+		$config['total_rows'] = $dataLength; //total row
+		$config['per_page'] = 5;  //show record per halaman
+		$config["uri_segment"] = 3;  // uri parameter
+		$choice = $config["total_rows"] / $config["per_page"];
+		$config["num_links"] = floor($choice);
+
+		$config['first_link']	   = 'First';
+		$config['last_link']		= 'Last';
+		$config['next_link']		= 'Next';
+		$config['prev_link']		= 'Prev';
+		$config['full_tag_open']	= '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+		$config['full_tag_close']   = '</ul></nav></div>';
+		$config['num_tag_open']	 = '<li class="page-item"><span class="page-link">';
+		$config['num_tag_close']	= '</span></li>';
+		$config['cur_tag_open']	 = '<li class="page-item active"><span class="page-link">';
+		$config['cur_tag_close']	= '<span class="sr-only">(current)</span></span></li>';
+		$config['next_tag_open']	= '<li class="page-item"><span class="page-link">';
+		$config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
+		$config['prev_tag_open']	= '<li class="page-item"><span class="page-link">';
+		$config['prev_tagl_close']  = '</span>Next</li>';
+		$config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+		$config['first_tagl_close'] = '</span></li>';
+		$config['last_tag_open']	= '<li class="page-item"><span class="page-link">';
+		$config['last_tagl_close']  = '</span></li>';
+
+		$this->pagination->initialize($config);
+		$data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+
+					// echo $this->uri->segment(4);
+		$countVacancy = $config['total_rows'];
+
+		$data['user'] = $this->m_user->get_user_list($config["per_page"], $data['page']);
+		$data['pagination'] = $this->pagination->create_links();
+
+		$this->load->view("owner/users/index",$data);
+		$this->load->view("footer/ft_footer");
+	}
+	public function view_users($id)
+	{
+		// data untuk view header
+		$idsession=$this->session->id;
+		// echo json_encode($id);
+		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$where=array('id'=>$id);
+		$data['user']=$this->m_user->edit_data($where,'user')->result();
+		$data1['title'] = 'View Profile| Dashboard';
+		if ($this->session->userdata('level') == 'owner')
+		{
+			$this->load->view("header/header_owner",$data1);
+			$this->load->view('owner/users/view_users_profile',$data);
 			$this->load->view("footer/ft_footer");
 		}else{
 			redirect('login');

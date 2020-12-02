@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Kos | Dashboard</title>
+  <title><?php echo $title ?></title>
   <!-- icon favicon -->
   <link rel="icon" href="<?php echo base_url(); ?>assets/img/favicon1.png" type="image/png">
   <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/img/favicon1.png" type="image/x-icon">
+  <!-- Modal Image Hover w3schools -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/modal.image.hover.css">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -54,27 +56,24 @@
       <ul class="navbar-nav ml-auto">
         <!-- items for customize appearance -->
         <li class="nav-item dropdown">
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-            <i class="fas fa-th-large"></i>
-          </a>
+          <li class="nav-item">
+            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
+              <i class="fas fa-th-large"></i>
+            </a>
+          </li>
         </li>
       </ul>
       <div class="dropdown">
-        <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown-menu">User
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li>
-              <a class="dropdown-item" href="#">
-                <p>
-                  HTML
-                </p>
-              </a>
-            </li>
-            <li><a href="#">CSS</a></li>
-            <li><a href="#">JavaScript</a></li>
-          </ul>
+        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+        <?php echo $user->nama; ?>
+
+
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="<?php echo base_url() ?>logout">Logout</a>
+            <a class="dropdown-item" href="<?php echo base_url() ?>adminprofile">User Profile</a>
+          </div>
         </div>
       </nav>
       <!-- /.navbar -->
@@ -96,7 +95,7 @@
               <img src="<?php echo base_url() ?>assets/dist/img/avatar.png" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-              <a href="#" class="d-block">Admin</a>
+              <a href="#" class="d-block"><?php echo $user->nama ?></a>
             </div>
           </div>
 
@@ -184,4 +183,3 @@
         <!-- /.content-header -->
 
 
-        

@@ -38,11 +38,43 @@ class M_user extends CI_Model{
 		$this->db->from('user');
 		$this->db->order_by("id", "asc");
 		$this->db->limit($limit, $start);
-		if($queryGetUserActivityData=$this->db->get()){
-			return $queryGetUserActivityData;
+		if($query=$this->db->get()){
+			return $query;
 		}else{
 			return 'data not entry';
 		}
+	}
+	// function tampil_data_user($id) 
+	// {
+	// 	$sql = "SELECT b.*,u.*,k.*
+	// 	FROM booking b 
+	// 	JOIN user u ON u.id = b.id
+	// 	JOIN kamar k ON k.id_kamar = b.id_kamar
+	// 	WHERE u.id = ?";
+	// 	$query = $this->db->query($sql,$id);
+	// 	if ($query->num_rows() > 0) {
+	// 		$result = $query->row();
+	// 		$query->free_result();
+	// 		return $result;
+	// 		// return true;
+	// 	} else {
+	// 		return array();
+	// 	}
+	// }
+	function tampil_data_user($idsession)
+	{
+		// $this->db->select('nama');
+		// $this->db->from('user');
+		// $this->db->where('id = ?');
+		$sql="SELECT * from user where user.id = ? ";
+		$query=$this->db->query($sql,$idsession);
+		if ($query->num_rows() > 0) {
+			$result=$query->row();
+			return $result;
+		}else{
+			return false;
+		}
+		// return $query->result();
 	}
 	// function userprofile($where, $table)
 	// {

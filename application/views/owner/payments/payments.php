@@ -25,32 +25,26 @@
   $no=1;
 
   foreach($booking as $b)
-    {
+  {
 
     ?>
-      <tr> 
-        <td><?php echo $b->nama_kamar?></td>
-        <td><?php echo $b->nama ?></td>
-        <td><?php echo $b->email ?></td>
-        <td><?php echo $b->alamat ?></td>
-        <td><?php echo $b->nohp ?></td>
-        <td><?php echo $b->user_level ?></td>
-        <td><?php echo $b->status_booking ?></td>
+    <tr> 
+      <td><?php echo $b->nama_kamar?></td>
+      <td><?php echo $b->nama ?></td>
+      <td><?php echo $b->email ?></td>
+      <td><?php echo $b->alamat ?></td>
+      <td><?php echo $b->nohp ?></td>
+      <td><?php echo $b->user_level ?></td>
+      <td><?php echo $b->status_booking ?></td>
 
-        <td>
-          <a class="btn btn-primary" href="<?php echo base_url('bookingcontroller/konfirmasi_payment/'.$b->id_booking) ?>">
-            <i class="fa fa-eye"></i>
-          </a>
-          <a class="btn btn-success" href="<?php echo base_url() ?>konfirmasi">
-            <i class="far fa-check-square"></i>
-          </a>
-          <a class="btn btn-danger" href="<?php echo base_url('bookingcontroller/hapus/'.$b->id_booking) ?>">
-           <i class="fa fa-trash-o"></i>
-         </a>
-       </td>
-     </tr>
-   <?php } ?>
- </table>
+      <td>
+        <a class="btn btn-primary" href="<?php echo base_url('bookingcontroller/view_payments/'.$b->id_booking) ?>">
+          <i class="fa fa-eye"></i>
+        </a>
+      </td>
+    </tr>
+  <?php } ?>
+</table>
 </div>
 </div>
 

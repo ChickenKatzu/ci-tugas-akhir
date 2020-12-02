@@ -1,4 +1,6 @@
 </body>
+<!-- Modal Image Hover w3schools -->
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/modal.image.hover.js"></script>
 <!-- jQuery -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

@@ -2,8 +2,8 @@ MVC
 
 model  -> db
 view   -> frontend
-controller -> back-end
-
+controller -> back-enD
+HOW MUCH THE PROGRESS DID I HAVE NOW?
 
 OOP
 
@@ -20,7 +20,7 @@ Class  adalah Controller || SESUAIKAN DOKUMEN ||
 	insert_user()
 	error()
 
-2. BookingController 60%
+2. BookingController 90%
 	booking ()
 	index()->form_booking DONE
 	pesankamar() 50%
@@ -29,11 +29,11 @@ Class  adalah Controller || SESUAIKAN DOKUMEN ||
 	konfirmasi_payment()
 
 3. Kamar Controller 80%?
-	dashboard_user()
-	dashboard_admin()
-	dashboard_owner()
+	dashboard_user() 90%
+	dashboard_admin() 90%
+	dashboard_owner()0%
 	payment() NOT DONE!
-	info kamar()
+	info kamar() 100%
 	//fungsi tambah, tambahkan enum status available/booked	DONE
 					 tambahkan enum ukuran kaman DONE
 					 tambahkan enum harga bulanan DONE
@@ -44,7 +44,8 @@ Class  adalah Controller || SESUAIKAN DOKUMEN ||
 
 NB:
 Info kamar pindah kamarcontroller DONE!
-
+TITLE SETIAP HALAMAN
+KONFIRMASI PEMBAYARAN
 
 ERD
 

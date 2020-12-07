@@ -77,7 +77,7 @@
 			var waktu = $('#waktu').val();
 
 			var dateToInt = new Date(_date).setTime(new Date(_date).getTime() + (31 * 24 * 60 * 60 * 1000));
-			// console.log('tanggal kapan? '+dateToInt);
+			console.log('tanggal kapan? '+dateToInt);
 			if (waktu == 'bulan') {
 				// result = value*31;
 				
@@ -108,16 +108,22 @@
 					var year = valueYear;
 					// $(month).val()
 				}
+				// else if()			
 				console.log(month);
 				// date.setMonth( date.getMonth() + );
 			}else if (waktu == 'tahun') {
 				// result = value*31*12;
 				
+				console.log('ts :'.dateToInt);
 				var year = new Date(dateToInt).getFullYear()+parseInt(value);
 				var month = new Date(dateToInt).getMonth();
+				if (month == 0) {
+					month = 12;
+				}
 
 				// date.setFullYear( date.getFullYear() + parseInt(value));
 				console.log(year);
+				console.log('bulan : '+month);
 
 			}
 

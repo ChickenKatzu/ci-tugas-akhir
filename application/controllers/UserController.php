@@ -18,8 +18,8 @@ class UserController extends CI_Controller
 
 	public function home()
 	{
-		$this->load->view('header/home');
 		$data['kamar']=$this->m_kamar->tampil_data()->result();
+		$this->load->view('header/home');
 		$this->load->view('home/index',$data);
 		$this->load->view('footer/home');
 	}

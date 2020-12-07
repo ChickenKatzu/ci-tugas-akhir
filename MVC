@@ -6,7 +6,18 @@ controller -> back-enD
 HOW MUCH THE PROGRESS DID I HAVE NOW?
 
 OOP
+-------------
+talbel cabang
+= idcabang
+- namacabang
 
+
+table kamar
+id_cabang
+
+
+insert kamar 
+------------
 
 Class Diagram
 Class  adalah Controller || SESUAIKAN DOKUMEN ||
@@ -28,11 +39,11 @@ Class  adalah Controller || SESUAIKAN DOKUMEN ||
 	payment() 20%
 	konfirmasi_payment()
 
-3. Kamar Controller 80%?
-	dashboard_user() 90%
-	dashboard_admin() 90%
-	dashboard_owner()0%
-	payment() NOT DONE!
+3. Kamar Controller 100%?
+	dashboard_user() 100%
+	dashboard_admin() 100%
+	dashboard_owner() 100%
+	payment() DONE!
 	info kamar() 100%
 	//fungsi tambah, tambahkan enum status available/booked	DONE
 					 tambahkan enum ukuran kaman DONE

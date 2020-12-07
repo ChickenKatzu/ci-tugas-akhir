@@ -44,7 +44,7 @@
         <div class="form-group">
           <div class="col-md-6">
             <label for="fotopembayaran">Foto Pembayaran</label>
-            <img id="myImg" src="<?php echo base_url() ?>assets/img/gambar2.jpg" style="width:100%;max-width:300px">
+            <img id="myImg" src="<?php echo base_url('gambar/'.$booking->gambar_user) ?>" style="width:100%;max-width:300px">
 
             <!-- The Modal -->
             <div id="myModal" class="modal form-control">

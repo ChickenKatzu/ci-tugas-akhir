@@ -5,21 +5,21 @@ class KamarController extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		// $this->load->model('m_user_mengement');
-		$this->load->model('m_user');
-		$this->load->model('m_register');
-		$this->load->model('m_kamar');
-		$this->load->model('m_booking');
+		// $this->load->model('M_user_mengement');
+		$this->load->model('M_user');
+		$this->load->model('M_register');
+		$this->load->model('M_kamar');
+		$this->load->model('M_booking');
 		$this->load->helper('form');
 		$this->load->helper('url');
-		$this->load->library('form_validation');
+		$this->load->library('forM_validation');
 		// $this->load->library('pagination');
 	}
 	public function user()
 	{
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data['user']);die();
 		$data['title'] = 'User | Dashboard';
 		if($this->session->userdata('level') == 'user')
@@ -37,7 +37,7 @@ class KamarController extends CI_Controller
 	{
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data['user']);die();
 		$data['title'] = 'Admin | Dashboard';
 		if($this->session->userdata('level') == 'admin')
@@ -55,7 +55,7 @@ class KamarController extends CI_Controller
 	{
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data['user']);die();
 		$data['title'] = 'Owner Dashboard';
 		if($this->session->userdata('level') == 'owner')
@@ -74,9 +74,9 @@ class KamarController extends CI_Controller
 	{
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data1['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data['user']);die();
-		$data['kamar']=$this->m_kamar->tampil_data()->result();
+		$data['kamar']=$this->M_kamar->tampil_data()->result();
 		$data1['title'] = 'View Kamar | Dashboard';
 		if($this->session->userdata('level') == 'admin')
 		{
@@ -91,7 +91,7 @@ class KamarController extends CI_Controller
 	{
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data['user']);die();
 		$data['title'] = 'Tambah Kamar | Dashboard';
 		if($this->session->userdata('level') == 'admin')
@@ -115,7 +115,7 @@ class KamarController extends CI_Controller
 			'nama_kamar'=> $namakamar,
 			'harga_bulanan'=> $hargabulanan
 		);
-		$this->m_kamar->input_data($data,'kamar');
+		$this->M_kamar->input_data($data,'kamar');
 		redirect('info_kamar');
 	}
 	public function edit($id)
@@ -123,10 +123,10 @@ class KamarController extends CI_Controller
 		// data untuk view header
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data1['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data1['user']);
 		$where=array('id_kamar'=>$id);
-		$data['kamar']=$this->m_kamar->edit_data($where,'kamar')->result();
+		$data['kamar']=$this->M_kamar->edit_data($where,'kamar')->result();
 		// echo json_encode($where);
 		// echo json_encode($data['kamar']);die();
 		$data1['title'] = 'Edit Kamar| Dashboard';
@@ -145,7 +145,7 @@ class KamarController extends CI_Controller
 		if($this->session->userdata('level') == 'admin')
 		{
 			$where = array('id_kamar' => $id);
-			$this->m_kamar->hapus_data($where,'kamar');
+			$this->M_kamar->hapus_data($where,'kamar');
 			redirect('info_kamar');
 		}else{
 			redirect('login');
@@ -170,7 +170,7 @@ class KamarController extends CI_Controller
 			'id_kamar' => $idkamar
 		);
 		
-		$testkamar=$this->m_kamar->update_data($where,$data,'kamar');
+		$testkamar=$this->M_kamar->update_data($where,$data,'kamar');
 		redirect('info_kamar');
 		// echo "dataout", json_encode($data);
 		// echo json_encode($testkamar);
@@ -181,10 +181,10 @@ class KamarController extends CI_Controller
 		// data untuk view header
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data1['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data['user']);die();
 		$id=$this->session->id;
-		$data['user']=$this->m_booking->tampil_data_join_inbox($id,'user');
+		$data['user']=$this->M_booking->tampil_data_join_inbox($id,'user');
 		// echo json_encode($data);die();
 		$data1['title'] = 'Inbox | Dashboard';
 		if($this->session->userdata('level') == 'user')
@@ -206,9 +206,9 @@ class KamarController extends CI_Controller
 	{
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data1['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data['user']);die();
-		$data['kamar']=$this->m_kamar->tampil_data()->result();
+		$data['kamar']=$this->M_kamar->tampil_data()->result();
 		$data1['title'] = 'Info Kamar | Dashboard';
 		if($this->session->userdata('level') == 'owner')
 		{
@@ -225,10 +225,10 @@ class KamarController extends CI_Controller
 		// data untuk view header
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data1['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data1['user']);
 		$where=array('id_kamar'=>$id);
-		$data['kamar']=$this->m_kamar->edit_data($where,'kamar')->result();
+		$data['kamar']=$this->M_kamar->edit_data($where,'kamar')->result();
 		// echo json_encode($where);
 		// echo json_encode($data['kamar']);die();
 		$data1['title'] = 'Payment Dashboard';

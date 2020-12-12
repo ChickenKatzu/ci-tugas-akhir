@@ -3,33 +3,33 @@ class BookingController extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_booking');
-		$this->load->model('m_kamar');
-		// $this->load->model('m_payment');
-		$this->load->model('m_user');
+		$this->load->model('M_booking');
+		$this->load->model('M_kamar');
+		// $this->load->model('M_payment');
+		$this->load->model('M_user');
 		$this->load->helper('form','url');
 		$this->load->library('pagination');
-		$this->load->library('form_validation');
+		$this->load->library('forM_validation');
 		$this->load->helper(array('form','url'));
 	}
 	// ADMIN PAGE
 	public function index()
 	{
 		$this->load->view("header/header");
-		// $data['user']=$this->m_booking->tampil_data()->result();
-		$this->load->view("form_booking");
+		// $data['user']=$this->M_booking->tampil_data()->result();
+		$this->load->view("forM_booking");
 		$this->load->view("footer/footer");
 	}
 	public function pesankamar()
 	{
 		// $this->load->view("header/header_booking");
 		$id=$this->session->id;
-		$data['kamar'] =$this->m_kamar->tampil_data($id)->result();
+		$data['kamar'] =$this->M_kamar->tampil_data($id)->result();
 		$data1['title'] = 'Pesan Kamar | Dashboard';
 		if ($this->session->userdata('level') == 'user')
 		{
 			$this->load->view("header/header",$data1);
-			$this->load->view('booking/form_booking', $data);
+			$this->load->view('booking/forM_booking', $data);
 			$this->load->view("footer/footer");
 		}else{
 			redirect ('login');
@@ -46,7 +46,7 @@ class BookingController extends CI_Controller {
 		$where = array(
 			'id_kamar' => $idkamar
 		);
-		$this->m_kamar->update_data($where,$data_kamar,'kamar');
+		$this->M_kamar->update_data($where,$data_kamar,'kamar');
 		
 
 		$tanggal_masuk=$this->input->post('tanggal_masuk');
@@ -60,7 +60,7 @@ class BookingController extends CI_Controller {
 			'tanggal_keluar'=> $tanggal_keluar
 		);
 		// echo json_encode($booking);
-		$test1=$this->m_booking->input_data($booking,'booking');
+		$test1=$this->M_booking->input_data($booking,'booking');
 		$this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">
 			Booking berhasil! Silahkan Konfirmasi pembayaran di inbox!
 			</div>');
@@ -75,9 +75,9 @@ class BookingController extends CI_Controller {
 		// data untuk view header
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data1['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data['user']);die();
-		$data['booking']=$this->m_booking->tampil_data_join();
+		$data['booking']=$this->M_booking->tampil_data_join();
 		// echo json_encode($data['booking']);
 		$data1['title'] = 'Payment | Dashboard';
 		if($this->session->userdata('level') == 'admin')
@@ -94,10 +94,10 @@ class BookingController extends CI_Controller {
 		// data untuk view header
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data1['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data['user']);die();
 		$where=array('id_booking'=>$id_booking);
-		$data['booking']=$this->m_booking->tampil_data_join_booking($where,'booking');
+		$data['booking']=$this->M_booking->tampil_data_join_booking($where,'booking');
 		// echo json_encode($data['booking']);die();
 		$data1['title'] = 'Konfirmasi Payment | Dashboard';
 		if($this->session->userdata('level') == 'admin')
@@ -123,9 +123,9 @@ class BookingController extends CI_Controller {
 			'id_booking' => $id
 		);
 
-		$data=$this->m_booking->update_data_payment($where,$data,'booking');
+		$data=$this->M_booking->update_data_payment($where,$data,'booking');
 		redirect('payment');
-		// echo $data -> num_rows($data);
+		// echo $data -> nuM_rows($data);
 		// echo json_encode($data -> $result());
 		// $out = array_values($data);
 		// json_encode($out);
@@ -137,7 +137,7 @@ class BookingController extends CI_Controller {
 
 		if($this->session->userdata('level') == 'admin')
 		{
-			$data=$this->m_booking->hapus_data_join_payment($where);
+			$data=$this->M_booking->hapus_data_join_payment($where);
 			// echo json_encode($data);die();
 			redirect('payment');
 		}else{
@@ -148,17 +148,17 @@ class BookingController extends CI_Controller {
 	public function hapus_payment($id)
 	{
 		$where = array('id_booking' => $id);
-		$this->m_booking->hapus_data($where,'booking');
+		$this->M_booking->hapus_data($where,'booking');
 		redirect('users');
 	}
 	public function payment_user($id)
 	{
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data1['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data['user']);die();
 		$where=array('id_booking' => $id);
-		$data['user']=$this->m_booking->tampil_data_join_inbox_detail($where);
+		$data['user']=$this->M_booking->tampil_data_join_inbox_detail($where);
 		// echo json_encode($data1['user']);die();
 		$data1['title'] = 'Payment | Dashboard';
 		if ($this->session->userdata('level') == 'user')
@@ -196,7 +196,7 @@ class BookingController extends CI_Controller {
 		$where=array(
 			'id' => $id
 		);
-		$data1['user']=$this->m_user->update_data($where,$data,'user');
+		$data1['user']=$this->M_user->update_data($where,$data,'user');
 		redirect('userinbox');
 	}
 
@@ -206,9 +206,9 @@ class BookingController extends CI_Controller {
 		// data untuk view header
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data1['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data['user']);die();
-		$data['booking']=$this->m_booking->tampil_data_join();
+		$data['booking']=$this->M_booking->tampil_data_join();
 		// echo json_encode($data['booking']);
 		$data1['title'] = 'Payment | Dashboard';
 		if($this->session->userdata('level') == 'owner')
@@ -226,10 +226,10 @@ class BookingController extends CI_Controller {
 		// data untuk view header
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data1['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data['user']);die();
 		$where=array('id_booking'=>$id_booking);
-		$data['booking']=$this->m_booking->tampil_data_join_booking($where,'booking');
+		$data['booking']=$this->M_booking->tampil_data_join_booking($where,'booking');
 		// echo json_encode($data['booking']);die();
 		$data1['title'] = 'View Payment | Dashboard';
 		if($this->session->userdata('level') == 'owner')

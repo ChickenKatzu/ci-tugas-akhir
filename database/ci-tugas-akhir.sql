@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2020 at 08:42 PM
+-- Generation Time: Dec 07, 2020 at 08:32 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -43,8 +43,9 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`id_booking`, `id`, `id_kamar`, `status`, `tanggal_masuk`, `tanggal_keluar`, `gambar`) VALUES
-(8, 41, 16, 'unpaid', '2020-11-15', '2022-11-16', ''),
-(9, 41, 17, 'unpaid', '2020-11-15', '2021-01-16', '');
+(14, 43, 16, 'paid', '2020-11-18', '2021-11-19', ''),
+(15, 45, 17, 'paid', '2020-12-02', '2021-06-02', ''),
+(16, 46, 18, 'paid', '2020-12-09', '2024-12-09', '');
 
 -- --------------------------------------------------------
 
@@ -68,14 +69,14 @@ CREATE TABLE `kamar` (
 INSERT INTO `kamar` (`id_kamar`, `nama_kamar`, `ukuran_kamar`, `harga_bulanan`, `status`, `gambar`) VALUES
 (16, 'kamar 1', '3m x 3m', '350000', 'booked', ''),
 (17, 'kamar 2', '3m x 3m', '350000', 'booked', ''),
-(18, 'kamar 3', '3m x 3m', '350000', 'available', ''),
+(18, 'kamar 3', '3m x 3m', '350000', 'booked', ''),
 (19, 'kamar 4', '3m x 3m', '350000', 'available', ''),
 (20, 'kamar 5', '3m x 3m', '350000', 'available', ''),
 (21, 'kamar 6', '3m x 3m', '350000', 'available', ''),
 (22, 'kamar 7', '3m x 3m', '350000', 'available', ''),
 (23, 'kamar 8', '3m x 3m', '350000', 'available', ''),
 (24, 'kamar 9', '3m x 3m', '350000', 'available', ''),
-(25, 'kamar 10', '3m x 3m', '350000', 'available', '');
+(26, 'kamar 10', '3m x 3m', '350000', 'available', '');
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,7 @@ CREATE TABLE `user` (
   `nohp` varchar(50) NOT NULL,
   `pekerjaan` varchar(50) NOT NULL,
   `user_level` enum('admin','owner','user') NOT NULL,
-  `gambar` varchar(50) NOT NULL
+  `gambar` varchar(50) NOT NULL DEFAULT 'gambar.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -114,9 +115,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `password`, `email`, `nama`, `alamat`, `tanggal_lahir`, `nohp`, `pekerjaan`, `user_level`, `gambar`) VALUES
-(41, 'sawungaja', 'sawung.galing36@gmail.com', 'user', 'user wonogiri', '2020-11-02', '2132132', 'testuser', 'user', ''),
-(42, 'sawung1', 'sawung.galing@gmail.com', 'admin', 'admin wonogiri', '2020-06-09', '32132121', 'mahasiswa', 'admin', ''),
-(43, 'user1', 'user@user.com', 'galih', 'wonogiri', '1998-05-16', '13212315', 'mahasiswa', 'user', '');
+(42, 'admin1', 'admin@admin.id', 'admin sawung', 'admin wonogiri', '2020-06-09', '32132121', 'mahasiswa', 'admin', ''),
+(43, 'user1', 'user@user.id', 'user sawung', 'wonogiri', '1995-12-05', '321321231', 'mahasiswa', 'user', 'gambar2.jpeg'),
+(44, 'owner1', 'owner@owner.id', 'owner sawung', 'Wonogiri, Giripurwa, Gerdu Rt01/06', '2020-11-01', '082292424105', 'swasta', 'owner', ''),
+(45, 'user2', 'user2@user.id', 'user2', 'user2', '2020-06-02', '082292424105', 'user2', 'user', 'gambar1.jpg'),
+(46, 'user3', 'user3@user.id', 'user3', 'user3', '2020-11-23', '082292424105', 'user3', 'user', 'gambar2.jpg');
 
 --
 -- Indexes for dumped tables
@@ -159,19 +162,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id_booking` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_booking` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `kamar`
 --
 ALTER TABLE `kamar`
-  MODIFY `id_kamar` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_kamar` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- Constraints for dumped tables

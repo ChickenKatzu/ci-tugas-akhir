@@ -124,10 +124,6 @@ function showDivs(n) {
 	<script src="<?php echo base_url(); ?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="<?php echo base_url(); ?>assets/dist/js/adminlte.js"></script>
-	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-	<script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard.js"></script>
-	<!-- AdminLTE for demo purposes -->
-	<script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
 	<!-- slick slider-->
 	<script  src="<?php echo base_url('assets/js/slick.min.js');?>"></script>
 	<script src="<?php echo base_url(); ?>assets/css/slick/slick/slick.min.js"></script>

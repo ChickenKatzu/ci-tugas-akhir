@@ -4,11 +4,11 @@ class UserController extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		// $this->load->model('m_user_mengement');
-		$this->load->model('m_user');
-		$this->load->model('m_booking');
-		$this->load->model('m_register');
-		$this->load->model('m_kamar');
+		// $this->load->model('M_user_mengement');
+		$this->load->model('M_user');
+		$this->load->model('M_booking');
+		$this->load->model('M_register');
+		$this->load->model('M_kamar');
 		$this->load->helper('form');
 		$this->load->helper('url');
 		$this->load->library('form_validation');
@@ -18,7 +18,7 @@ class UserController extends CI_Controller
 
 	public function home()
 	{
-		$data['kamar']=$this->m_kamar->tampil_data()->result();
+		$data['kamar']=$this->M_kamar->tampil_data()->result();
 		$this->load->view('header/home');
 		$this->load->view('home/index',$data);
 		$this->load->view('footer/home');
@@ -44,7 +44,7 @@ class UserController extends CI_Controller
 	{
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
-		$cek = $this->m_user->cek($email, $password);
+		$cek = $this->M_user->cek($email, $password);
 		if($cek->num_rows() == 1)
 		{
 			foreach($cek->result() as $data){
@@ -123,7 +123,7 @@ class UserController extends CI_Controller
 				'password'=> $password,
 				'user_level' => 'user'
 			);
-			$test=$this->m_register->input_data($data,'user');
+			$test=$this->M_register->input_data($data,'user');
 			$this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">
 				Selamat! Akun telah dibuat silahkan login!
 				</div>');
@@ -139,9 +139,9 @@ class UserController extends CI_Controller
 	{
 		$id=$this->session->id;
 		// echo json_encode($id);
-		$data['user']=$this->m_user->tampil_data_user($id,'user');
+		$data['user']=$this->M_user->tampil_data_user($id,'user');
 		// echo json_encode($data['user']);die();
-		$user=$this->m_user->tampil_data()->result();
+		$user=$this->M_user->tampil_data()->result();
 		$data['title'] = 'Users Admin | Dashboard';
 		$this->load->view("header/header_admin",$data);
 
@@ -181,7 +181,7 @@ class UserController extends CI_Controller
 					// echo $this->uri->segment(4);
 		$countVacancy = $config['total_rows'];
 
-		$data['user'] = $this->m_user->get_user_list($config["per_page"], $data['page']);
+		$data['user'] = $this->M_user->get_user_list($config["per_page"], $data['page']);
 		$data['pagination'] = $this->pagination->create_links();
 
 		$this->load->view("user/index",$data);
@@ -212,7 +212,7 @@ class UserController extends CI_Controller
 			'pekerjaan'=> $pekerjaan,
 			'user_level'=> $level
 		);
-		$this->m_user->input_data($data,'user');
+		$this->M_user->input_data($data,'user');
 		redirect('users');
 	}
 	public function edit($id)
@@ -220,9 +220,9 @@ class UserController extends CI_Controller
 		// data untuk view header
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data1['user']=$this->m_user->tampil_data_user($id,'user');
+		$data1['user']=$this->M_user->tampil_data_user($id,'user');
 		$where=array('id'=>$id);
-		$data['user']=$this->m_user->edit_data($where,'user')->result();
+		$data['user']=$this->M_user->edit_data($where,'user')->result();
 		$data1['title'] = 'Edit User | Dashboard';
 		$this->load->view("header/header_admin",$data1);
 		$this->load->view('user/edit_user',$data);
@@ -231,7 +231,7 @@ class UserController extends CI_Controller
 	public function hapus($id)
 	{
 		$where = array('id' => $id);
-		$this->m_user->hapus_data($where,'user');
+		$this->M_user->hapus_data($where,'user');
 		redirect('users');
 	}
 	public function update()
@@ -258,7 +258,7 @@ class UserController extends CI_Controller
 			'id' => $id
 		);
 
-		$TestUser=$this->m_user->update_data($where,$data,'user');
+		$TestUser=$this->M_user->update_data($where,$data,'user');
 		redirect('users');
 		// echo $TestUser -> num_rows($data);
 		// echo json_encode($TestUser -> $result());
@@ -271,9 +271,9 @@ class UserController extends CI_Controller
 		$idsession=$this->session->id;
 		$id=$this->session->id;
 		// echo json_encode($id);
-		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data1['user']=$this->M_user->tampil_data_user($idsession,'user');
 		// echo json_encode($data['user']);die();
-		$data['user']=$this->m_user->userprofile($id);
+		$data['user']=$this->M_user->userprofile($id);
 		// echo json_encode($data);die();
 		$data1['title'] = 'User Profile | Dashboard';
 		if ($this->session->userdata('level') == 'user')
@@ -289,10 +289,10 @@ class UserController extends CI_Controller
 	{
 		$id=$this->session->id;
 		// echo json_encode($id);
-		$data['user']=$this->m_user->tampil_data_user($id,'user');
+		$data['user']=$this->M_user->tampil_data_user($id,'user');
 		// echo json_encode($data['user']);die();
 		$id = $this->session->id;
-		$data['user'] = $this->m_user->userprofile($id);
+		$data['user'] = $this->M_user->userprofile($id);
 		// echo json_encode($data);die();
 		$data['title'] = 'Admin Profile | Dashboard';
 		if ($this->session->userdata('level') == 'admin')
@@ -308,10 +308,10 @@ class UserController extends CI_Controller
 	{
 		$id=$this->session->id;
 		// echo json_encode($id);
-		$data['user']=$this->m_user->tampil_data_user($id,'user');
+		$data['user']=$this->M_user->tampil_data_user($id,'user');
 		// echo json_encode($data['user']);die();
 		$id = $this->session->id;
-		$data['user'] = $this->m_user->userprofile($id);
+		$data['user'] = $this->M_user->userprofile($id);
 		// echo json_encode($data);die();
 		$data['title'] = 'Owner Profile | Dashboard';
 		if ($this->session->userdata('level') == 'owner')
@@ -329,9 +329,9 @@ class UserController extends CI_Controller
 	{
 		$id=$this->session->id;
 		// echo json_encode($id);
-		$data['user']=$this->m_user->tampil_data_user($id,'user');
+		$data['user']=$this->M_user->tampil_data_user($id,'user');
 		// echo json_encode($data['user']);die();
-		$user=$this->m_user->tampil_data()->result();
+		$user=$this->M_user->tampil_data()->result();
 		$data['title'] = 'Users Owner | Dashboard';
 		$this->load->view("header/header_owner",$data);
 
@@ -371,7 +371,7 @@ class UserController extends CI_Controller
 					// echo $this->uri->segment(4);
 		$countVacancy = $config['total_rows'];
 
-		$data['user'] = $this->m_user->get_user_list($config["per_page"], $data['page']);
+		$data['user'] = $this->M_user->get_user_list($config["per_page"], $data['page']);
 		$data['pagination'] = $this->pagination->create_links();
 
 		$this->load->view("owner/users/index",$data);
@@ -382,9 +382,9 @@ class UserController extends CI_Controller
 		// data untuk view header
 		$idsession=$this->session->id;
 		// echo json_encode($id);
-		$data1['user']=$this->m_user->tampil_data_user($idsession,'user');
+		$data1['user']=$this->M_user->tampil_data_user($idsession,'user');
 		$where=array('id'=>$id);
-		$data['user']=$this->m_user->edit_data($where,'user')->result();
+		$data['user']=$this->M_user->edit_data($where,'user')->result();
 		$data1['title'] = 'View Profile| Dashboard';
 		if ($this->session->userdata('level') == 'owner')
 		{

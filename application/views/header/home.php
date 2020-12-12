@@ -31,17 +31,8 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- Custom stylesheet -->
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/style.css');?>">
-  <link rel="stylesheet" type="text/css" id="style_sheet" href="<?= base_url('assets/css/skins/default.css');?>">
+ 
   <!-- export -->
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/slider/bootstrap.min.css');?>">
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/slider/animate.min.css');?>">
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/slider/bootstrap-submenu.css');?>">
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/slider/bootstrap-select.min.css');?>">
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/slider/magnific-popup.css');?>">
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/slider/leaflet.css');?>" >
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/slider/jquery.mCustomScrollbar.css');?>">
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/slider/dropzone.css');?>">
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/slider/slick.css');?>">
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/slider/jquery-ui.css');?>">
 </head>
 <body>

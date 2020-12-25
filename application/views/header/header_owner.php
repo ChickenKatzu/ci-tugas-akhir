@@ -111,15 +111,7 @@
                   </p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url() ?>info_kamar_owner" class="nav-link">
-                  <i class="nav-icon fa fa-home"></i>
-                  <p>
-                    Info Kamar
-                    <span class="right badge badge-danger">New</span>
-                  </p>
-                </a>
-              </li>
+              
               <li class="nav-item">
                 <a href="<?php echo base_url() ?>owner_payments" class="nav-link">
                   <i class="nav-icon fas fa-credit-card"></i>

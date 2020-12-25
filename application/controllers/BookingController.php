@@ -29,7 +29,7 @@ class BookingController extends CI_Controller {
 		if ($this->session->userdata('level') == 'user')
 		{
 			$this->load->view("header/header",$data1);
-			$this->load->view('booking/forM_booking', $data);
+			$this->load->view('booking/form_booking', $data);
 			$this->load->view("footer/footer");
 		}else{
 			redirect ('login');
@@ -51,13 +51,26 @@ class BookingController extends CI_Controller {
 
 		$tanggal_masuk=$this->input->post('tanggal_masuk');
 		$tanggal_keluar=$this->input->post('tanggal_keluar');
+		$rentangValue=$this->input->post('rentangValue');
+		$rentangSatuan=$this->input->post('rentangSatuan');
+		$price=$this->input->post('price');
+
+		$hargabooking = 0;
+
+		if ($rentangSatuan == 'tahun') {
+			$hargabooking = ($rentangValue*12)*$price;
+
+		}elseif($rentangSatuan == 'bulan'){
+			$hargabooking = $rentangValue*$price;
+		}
 		
 		$booking=array(
 			'id'=>$id_user,
 			'id_kamar'=>$idkamar,
 			'status'=>'unpaid',
 			'tanggal_masuk'=>$tanggal_masuk,
-			'tanggal_keluar'=> $tanggal_keluar
+			'tanggal_keluar'=> $tanggal_keluar,
+			'harga' => $hargabooking
 		);
 		// echo json_encode($booking);
 		$test1=$this->M_booking->input_data($booking,'booking');

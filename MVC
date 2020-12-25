@@ -6,6 +6,8 @@ controller -> back-enD
 HOW MUCH THE PROGRESS DID I HAVE NOW?
 
 OOP
+
+
 -------------
 talbel cabang
 = idcabang
@@ -16,34 +18,40 @@ table kamar
 id_cabang
 
 
-insert kamar 
-------------
+-----------
+one side ontification
+user -> user 1
+user order to admin
+-----------
 
+
+------------
+insert kamar 
 Class Diagram
 Class  adalah Controller || SESUAIKAN DOKUMEN ||
 
-1. UserController DONE!100%
-	home()
-	register()
-	logout()
-	login()
-	user_management()
-	insert_user()
-	error()
+1. UserController 	 100%
+	home()					DONE!!
+	register()				DONE!!
+	logout()				DONE!!
+	login()					DONE!!
+	user_management()		DONE!!
+	insert_user()			DONE!!
+	error()					DONE!!
 
-2. BookingController 90%
-	booking ()
-	index()->form_booking DONE
-	pesankamar() 50%
-	order()
-	payment() 20%
+2. BookingController 100%
+	booking ()				DONE!!
+	index()->form_booking 	DONE!!
+	pesankamar()			DONE!!
+	order()					DONE!!
+	payment()				DONE!!
 	konfirmasi_payment()
 
-3. Kamar Controller 100%?
-	dashboard_user() 100%
-	dashboard_admin() 100%
-	dashboard_owner() 100%
-	payment() DONE!
+3. Kamar Controller  100%
+	dashboard_user()	DONE!!
+	dashboard_admin()	DONE!!
+	dashboard_owner()	DONE!!
+	payment() 			DONE!!
 	info kamar() 100%
 	//fungsi tambah, tambahkan enum status available/booked	DONE
 					 tambahkan enum ukuran kaman DONE

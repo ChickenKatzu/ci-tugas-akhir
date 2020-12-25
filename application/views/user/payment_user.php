@@ -39,6 +39,10 @@
       <label for="hargabulanan">Pekerjaan</label>
       <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan" value="<?php echo $user->pekerjaan ?>"readonly>
     </div>
+    <div class="form-group col-md-6">
+      <label for="hargabulanan">Harga Perbulan</label>
+      <input type="text" class="form-control" name="pekerjaan" placeholder="Pekerjaan" value="Rp.<?php echo $user->harga_bulanan ?>"readonly>
+    </div>
     <div class="form-group">
       <label for="uploadGambar">Gambar/Foto</label>
       <input type="file" class="form-control-file" name="gambar" value="<?php echo $user->gambar ?>">

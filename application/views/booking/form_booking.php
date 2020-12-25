@@ -12,6 +12,7 @@
       <hr>
       <form action="<?php echo base_url('bookingcontroller/order') ?>" method="post">
        <p><label><i class="fa fa-calendar-check-o"></i> Check In</label></p>
+       <input style="display: none" type="number" name="price" value='350000'>
        <label for="idkamar">Nomor Kamar</label>
        <select class="form-control" name="idkamar" required>
         <option value="">-</option>
@@ -31,9 +32,9 @@
 
       <div class="form-group">
         <div class="input-group-addon"><b>Rentang :</b></div>
-        <input id="rentang" type="number" name="" class='form-control' max="12" min="1" required>
+        <input id="rentang" type="number" name="rentangValue" class='form-control' max="12" min="1" required>
 
-        <select id="waktu" class="form-control" required="" >
+        <select id="waktu" class="form-control" required="" name="rentangSatuan">
           <option value="-">-</option>
           <option value="tahun">Tahun</option>
           <option value="bulan">Bulan</option>

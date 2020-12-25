@@ -30,7 +30,9 @@
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>  
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
       <!-- Slide One - Set the background image for this slide in the line below -->
@@ -49,6 +51,18 @@
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url(assets/img/gambar6.jpg)">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="display-4">Third Slide</h3>
+          <p class="lead">This is a description for the third slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item" style="background-image: url(assets/img/gambar7.jpg)">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="display-4">Third Slide</h3>
+          <p class="lead">This is a description for the third slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item" style="background-image: url(assets/img/gambar8.jpg)">
         <div class="carousel-caption d-none d-md-block">
           <h3 class="display-4">Third Slide</h3>
           <p class="lead">This is a description for the third slide.</p>

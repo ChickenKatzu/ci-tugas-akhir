@@ -9,6 +9,7 @@ class UserController extends CI_Controller
 		$this->load->model('M_booking');
 		$this->load->model('M_register');
 		$this->load->model('M_kamar');
+		$this->load->model('M_attendance');
 		$this->load->helper('form');
 		$this->load->helper('url');
 		$this->load->library('form_validation');
@@ -42,9 +43,13 @@ class UserController extends CI_Controller
 
 	public function getLogin()
 	{
+		$id_user = $this->session->id;
+		// $id_absen = $this->session->id;
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		$cek = $this->M_user->cek($email, $password);
+		$data1['user']=$this->M_user->tampil_data_user($id_user,'user');
+		// $data2['absen']=$this->M_attendance->tampil_data_user($id_absen,'absen');
 		if($cek->num_rows() == 1)
 		{
 			foreach($cek->result() as $data){
@@ -72,7 +77,17 @@ class UserController extends CI_Controller
 			// elseif($sess_data['level'] == 'admin')
 			elseif($this->session->userdata('level') == 'admin')
 			{
+				$id_user = $this->session->id;
+				$now = date('Y-m-d H:i:s');
+				date_default_timezone_set('Asia/Jakarta');
+				$absen=array(
+					'id' => $id_user,
+					'absen' => $now,
+					'user_log' => 'login'
+				);
+				$test_absen=$this->M_attendance->absen3($absen,'absen');
 				redirect('admin');
+				// echo json_encode($test_absen);die();
 			}
 		}
 		else
@@ -84,9 +99,21 @@ class UserController extends CI_Controller
 		}
 	}
 	public function logout()
-	{
+	{	
+		$id_user = $this->session->id;
+		$now = date('Y-m-d H:i:s');
+		date_default_timezone_set('Asia/Jakarta');
+		{
+			$absen=array(
+				'id' => $id_user,
+				'absen' => $now,
+				'user_log' => 'logout'
+			);
+			$test_absen=$this->M_attendance->absen3($absen,'absen');
+			// echo json_encode($test_absen);die();
+		}
 		$this->session->sess_destroy();
-		redirect('home');
+		redirect('login');
 	}
 
 	public function register()

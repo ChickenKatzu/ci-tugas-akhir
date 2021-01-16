@@ -1,0 +1,125 @@
+
+KUNG FU VAPESTORE
+manager > laporan bulanan
+laporan bulanan outlet 1 > manager outelet 1 -- nama manager / status pembuat laporan
+laporan bulanan outlet 2 > manager outelet 2
+
+
+
+input tanggal mulai : 1-1-21
+input tanggal akhir : 31-1-21
+Ctrl + P
+cabnag | pelanggan | banang? | bayar | tanggal 
+
+tipe laporan
+- grand semua (Owner)
+- transaksi kasir (by id_kasir)
+- 
+
+
+
+
+
+Transaksi Transfer
+nama user / tipe user (kasir)
+
+- uang ke kasir
+- laporan ke owner 
+
+
+Owner / admin -> yang punya perusahan, 
+- BO / User management
+- Produk
+	- Kulakan (masuk)
+	- Keluar -> (cabang)
+	- harga beli / harga jual
+	- stock masuk/keluar > sisa stock 2 dapet nitifikasi x
+	- Gambar? market place x
+
+- Promo
+	- batas pembelian 100K potongan 10% / tombol on/off
+	- batas pembelian 6 barang potongan 10%	| on
+	- batas pembalian 1 barang potongan 10K | on
+	- batas pembelian 5 barang potongan 10%	| off
+	- batas pembalian 2 barang potongan 10K | off
+
+- Laporan 
+	input tanggal mulai : 01-1-21
+	input tanggal akhir : 31-1-21
+	- Transkasi
+	- Laba Rugi
+
+- Cabang
+	- CRUD
+
+
+Kasir
+
+login
+	- choose cabang
+
+
+- Pelanggan
+	-CRUD
+	- Creat pelanggan (member / non member)
+
+- Tansaksi
+	- get palanggan
+	- get produk
+	-promo 
+	-invoice
+
+
+Admin
+	|________________________________
+	|								|
+	v						 		v
+Cabang(1)						Cabang (2)
+	|								|
+	v								v
+Kasir(2)						Kasir(5)
+Kasir(3)						Kasir(6)
+					
+
+
+1. hari ini
+10
+
+Pagi
+- 5 * 100000 / 500.000
+sistem 5
+dicokokan dengan offline 5
+
+switch_stock
+nama barang | jumlah di cabang | harga | action : cocok / selisih()
+
+
+Siang
+Lupa input?
+- 4 * 100000 / 400.000
+laporan ternya barang offilne 4
+
+
+Pagi
+1
+
+0
+switch_stock
+nama barang | jumlah di cabang | harga | action : cocok / selisih(1)
+
+
+
+entah di jual siang? kemarin
+dijual pagi? hari baru
+
+
+__________
+kita kasih proposal?
+si klien kasih bentuk gambaran? POC
+ aplikasi kos seng tok buatku
+ tak kembangkan lagi ditambahi seng kurang apa dipasarkan?/deleh github wae
+
+skill stay codeigniter php bootstrap
+jquery
+javascript
+sql
